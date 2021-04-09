@@ -40,3 +40,14 @@ feature 'Permissions' do
     expect(login_page.error_message.text).to eq(DENIED_ACCESS)
   end
 end
+
+feature 'Error handling' do
+  let(:login_page) { Login.new }
+
+  it 'is closed when we click on the cross' do
+    visit(URL)
+    login_page.fill_login_form(INVALID_NAME, '')
+    login_page.error_button.click
+    expect(page).not_to have_content(ERROR_MESSAGE_PASSWORD)
+  end
+end

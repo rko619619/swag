@@ -15,8 +15,6 @@ Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
 
-Webdrivers.install_dir = '/home/yanis'
-
 RSpec.configure do |config|
   config.include Capybara::DSL
   config.include Capybara::RSpecMatchers
