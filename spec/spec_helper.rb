@@ -5,6 +5,9 @@ require 'site_prism'
 require 'site_prism/all_there'
 require 'pry'
 require 'pry-byebug'
+
+Dir["#{File.dirname(__FILE__)}/pages/**/*.rb"].each { |file| require file.to_s }
+
 Capybara.run_server = false
 Capybara.default_driver = :selenium
 
