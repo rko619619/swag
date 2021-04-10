@@ -8,3 +8,8 @@ ERROR_MESSAGE = 'Epic sadface: Username and password do not match any user in th
 ERROR_MESSAGE_USERNAME = 'Epic sadface: Username is required'.freeze
 ERROR_MESSAGE_PASSWORD = 'Epic sadface: Password is required'.freeze
 DENIED_ACCESS = "Epic sadface: You can only access '/inventory.html' when you are logged in.".freeze
+TWITTER_URL = "https://twitter.com/saucelabs".freeze
+FACEBOOK_URL = "https://www.facebook.com/saucelabs".freeze
+LINKEDIN_URL = "https://www.linkedin.com/company/sauce-labs/".freeze
+ABOUT_URL = "https://saucelabs.com/".freeze
+
