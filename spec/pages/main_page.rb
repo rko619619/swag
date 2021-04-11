@@ -4,5 +4,5 @@ class Visit < SitePrism::Page
   element :twitter, '.social_twitter'
   element :about, :xpath, '//*[@id="about_sidebar_link"]'
   element :menu_button, '#react-burger-menu-btn'
+  element :reset, '#reset_sidebar_link'
 end
-
