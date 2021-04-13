@@ -15,7 +15,7 @@ feature 'Social media' do
     end
   end
 
-  it 'transfer to about page, when user click button "ABOUT"' do
+  it 'user is able to visit official page from button "About"' do
     products_page.click_on_about_btn
     expect(current_url) == ABOUT_URL
   end
