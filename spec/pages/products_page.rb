@@ -1,6 +1,6 @@
 class ProductsPage < SitePrism::Page
-  element :about, :xpath, '//*[@id="about_sidebar_link"]'
-  element :reset, '#reset_sidebar_link'
+  element :about_btn, :xpath, '//*[@id="about_sidebar_link"]'
+  element :reset_btn, '#reset_sidebar_link'
   element :menu_button, '#react-burger-menu-btn'
   element :cart_icon, '.shopping_cart_link'
   element :products_name, '#item_4_title_link'
@@ -10,17 +10,17 @@ class ProductsPage < SitePrism::Page
   element :products_remove, '.btn_secondary'
 
   def social_media(social_media)
-    window_opened_by { page.find(".social_#{social_media}").click }
+    window_opened_by { find(".social_#{social_media}").click }
   end
 
-  def menu_button_click
+  def click_on_about_btn
     menu_button.click
-    about.click
+    about_btn.click
   end
 
   def menu_button_reset
     menu_button.click
-    reset.click
+    reset_btn.click
   end
 
   def get_information

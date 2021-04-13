@@ -1,11 +1,10 @@
-feature 'Cart' do
+xfeature 'Cart' do
   let(:login_page)      { LoginPage.new    }
   let(:products_page)   { ProductsPage.new }
   let(:cart_page)       { CartPage.new     }
   let(:product_page)    { ProductPage.new  }
 
-  before { visit LOGIN_PAGE }
-  before { login_page.fill_login_form(VALID_NAME, VALID_PASSWORD) }
+  before { login_page.login(VALID_NAME, VALID_PASSWORD) }
   before { products_page.menu_button_reset }
 
   it 'add a one product to cart from products page; correct number, name, description, price is displayed on cart page' do

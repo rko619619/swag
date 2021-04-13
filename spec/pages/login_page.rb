@@ -5,7 +5,8 @@ class LoginPage < SitePrism::Page
   element :error_message, '.error-message-container.error'
   element :error_button, '.error-button'
 
-  def fill_login_form(username, password)
+  def login(username, password)
+    visit LOGIN_PAGE
     user_name.set(username)
     user_password.set(password)
     click_button.click
