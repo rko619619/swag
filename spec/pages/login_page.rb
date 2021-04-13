@@ -11,4 +11,8 @@ class LoginPage < SitePrism::Page
     user_password.set(password)
     click_button.click
   end
+
+  def get_error_message_on_login
+    error_message.text
+  end
 end
