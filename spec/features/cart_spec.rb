@@ -1,40 +1,35 @@
-xfeature 'Cart' do
+feature 'Cart' do
   let(:login_page)      { LoginPage.new    }
   let(:products_page)   { ProductsPage.new }
   let(:cart_page)       { CartPage.new     }
   let(:product_page)    { ProductPage.new  }
 
-  before { login_page.login(VALID_NAME, VALID_PASSWORD) }
-  before { products_page.menu_button_reset }
-
-  it 'add a one product to cart from products page; correct number, name, description, price is displayed on cart page' do
-    information_products = products_page.get_information
-
-    products_page.add_product_to_cart
-    expect(products_page.count_cart).to eq('1')
-    products_page.cart_icon_click
-
-    information_cart = cart_page.get_information
-    expect(information_cart).to eq(information_products)
-
-    cart_page.remove_product
-    expect(page).not_to have_content(information_cart)
-    expect(cart_page.count_cart).to eq('')
+  before :each do
+    login_page.login(VALID_NAME, VALID_PASSWORD)
   end
 
-  it 'add a one product to cart from cart page; correct number, name, description, price is displayed on cart page' do
-    products_page.click_on_product
-    information_product = product_page.get_information
+  context 'add a one product to cart from products page and product page, and than remove ' do
+    it 'check correct number, name, description, price is displayed on cart page' do
+      pages = { 'products_page' => products_page, 'product_page' => product_page }
+      pages.each do |key, value|
+        products_page.click_on_reset_btn
+        if key == 'product_page'
+          products_page.click_on_product
+        end
+        information_products = value.get_information_attributes
 
-    product_page.add_product_to_cart
-    expect(product_page.count_cart).to eq('1')
-    product_page.cart_icon_click
+        value.add_product_to_cart
+        expect(value.get_count_of_cart).to eq('1')
+        value.click_on_cart_icon
 
-    information_cart = cart_page.get_information
-    expect(information_cart).to eq(information_product)
+        information_cart = cart_page.get_information_attributes
+        expect(information_cart).to eq(information_products)
 
-    cart_page.remove_product
-    expect(page).not_to have_content(information_cart)
-    expect(cart_page.count_cart).to eq('')
+        cart_page.click_on_remove_btn
+        expect(page).not_to have_content(information_cart)
+        expect(cart_page.get_count_of_cart).to eq('')
+        visit(PRODUCTS_PAGE)
+      end
+    end
   end
 end
