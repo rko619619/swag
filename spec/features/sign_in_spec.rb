@@ -1,4 +1,4 @@
-xfeature 'Sign in' do
+feature 'Sign in' do
   let(:login_page) { LoginPage.new }
   before { visit LOGIN_PAGE }
 

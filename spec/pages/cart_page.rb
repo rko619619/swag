@@ -1,26 +1,22 @@
-class BasketOnMainPage < SitePrism::Page
-  element :basket_on_page, '.shopping_cart_link'
-  element :basket, '.inventory_item_name'
-  element :item_name, '#item_4_title_link'
-  element :item_description, :xpath, '//*[@id="inventory_container"]/div/div[1]/div[2]/div[1]/div'
-  element :item_button, '#add-to-cart-sauce-labs-backpack'
-  element :item_remove, '.btn_secondary'
+class CartPage < SitePrism::Page
+  element :cart_count, '.shopping_cart_link'
+  element :cart_name, '#item_4_title_link > div'
+  element :cart_description, '.inventory_item_desc'
+  element :cart_count, '.cart_quantity'
+  element :cart_price, '.inventory_item_price'
+  element :cart_button, '.btn_primary'
+  element :cart_remove, '.btn_small'
+  element :cart_icon, '.shopping_cart_link'
 
-  # modal cart
-end
+  def get_information
+    [cart_name.text, cart_description.text, cart_price.text, cart_count.text]
+  end
 
-class Basket < SitePrism::Page
-  element :basket_count, '.shopping_cart_link'
-  element :item_name, '#item_4_title_link > div'
-  element :item_description, '.inventory_item_desc'
-  element :item_count, '.cart_quantity'
-  element :item_button, '.btn_primary'
-  element :item_remove, '.btn_small'
-end
+  def remove_product
+    cart_remove.click
+  end
 
-class Item < SitePrism::Page
-  element :item_name, '.inventory_details_name'
-  element :item_description, '.inventory_details_desc'
-  element :item_button, '.btn_primary'
-  element :item_remove, '.btn_small'
+  def count_cart
+    cart_icon.text
+  end
 end
