@@ -1,5 +1,5 @@
-URL = 'https://www.saucedemo.com'.freeze
-MAIN_URL = 'https://www.saucedemo.com/inventory.html'.freeze
+LOGIN_PAGE = 'https://www.saucedemo.com'.freeze
+PRODUCTS_PAGE = 'https://www.saucedemo.com/inventory.html'.freeze
 
 INVALID_NAME = 'Username'.freeze
 INVALID_PASSWORD = 'Password'.freeze

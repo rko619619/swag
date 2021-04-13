@@ -1,6 +1,6 @@
-feature 'Sign in' do
-  let(:login_page) { Login.new }
-  before { visit URL }
+xfeature 'Sign in' do
+  let(:login_page) { LoginPage.new }
+  before { visit LOGIN_PAGE }
 
   it 'standart_user is not able to log in with an invalid email and password' do
     login_page.fill_login_form(INVALID_NAME, INVALID_PASSWORD)
@@ -9,7 +9,7 @@ feature 'Sign in' do
 
   it 'standart_user is valid to log in with a valid email and password' do
     login_page.fill_login_form(VALID_NAME, VALID_PASSWORD)
-    expect(page).to have_current_path(MAIN_URL)
+    expect(page).to have_current_path(PRODUCTS_PAGE)
   end
 
   it 'standart_user is not able to log in with a empty email and empty password' do
@@ -33,7 +33,7 @@ feature 'Sign in' do
   end
 
   it 'standart_user is not able to visit without login' do
-    visit(MAIN_URL)
+    visit(PRODUCTS_PAGE)
     expect(login_page.error_message.text).to eq(DENIED_ACCESS)
   end
 

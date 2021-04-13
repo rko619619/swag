@@ -5,6 +5,8 @@ class BasketOnMainPage < SitePrism::Page
   element :item_description, :xpath, '//*[@id="inventory_container"]/div/div[1]/div[2]/div[1]/div'
   element :item_button, '#add-to-cart-sauce-labs-backpack'
   element :item_remove, '.btn_secondary'
+
+  # modal cart
 end
 
 class Basket < SitePrism::Page

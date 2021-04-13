@@ -1,4 +1,4 @@
-class Login < SitePrism::Page
+class LoginPage < SitePrism::Page
   element :user_name, '#user-name'
   element :user_password, '#password'
   element :click_button, '#login-button'
