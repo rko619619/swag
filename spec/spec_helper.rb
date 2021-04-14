@@ -5,14 +5,19 @@ require 'site_prism'
 require 'site_prism/all_there'
 require 'pry'
 require 'pry-byebug'
-
+require 'rspec/retry'
 Dir["#{File.dirname(__FILE__)}/pages/**/*.rb"].each { |file| require file.to_s }
 
 Capybara.run_server = false
 Capybara.default_driver = :selenium
 
 Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
+  browser_options = ::Selenium::WebDriver::Chrome::Options.new.tap do |opts|
+    opts.args << '--start-maximized'
+    opts.args << '--headless'
+    opts.args << '--disable-extensions'
+  end
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: browser_options)
 end
 
 RSpec.configure do |config|
@@ -22,6 +27,19 @@ RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
+
+  # config retry
+  config.verbose_retry = true
+  config.display_try_failure_messages = true
+
+  config.around do |ex|
+    ex.run_with_retry retry: 3
+  end
+
+  config.retry_callback = proc do |ex|
+    Capybara.reset!
+  end
+
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
   end
