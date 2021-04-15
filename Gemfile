@@ -1,9 +1,11 @@
 gem 'capybara'
+gem 'capybara-screenshot', group: :test
+gem 'parallel'
 gem 'pry'
 gem 'pry-byebug'
+gem 'rake'
 gem 'rspec', '~> 3.5'
+gem 'rspec-retry', group: :test
 gem 'rubocop'
 gem 'site_prism'
 gem 'webdrivers'
-gem 'rspec-retry', group: :test
-gem 'capybara-screenshot', :group => :test

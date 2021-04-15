@@ -40,6 +40,7 @@ GEM
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rainbow (3.0.0)
+    rake (13.0.3)
     regexp_parser (2.1.1)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
@@ -87,8 +88,10 @@ PLATFORMS
 DEPENDENCIES
   capybara
   capybara-screenshot
+  parallel
   pry
   pry-byebug
+  rake
   rspec (~> 3.5)
   rspec-retry
   rubocop

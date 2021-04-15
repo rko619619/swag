@@ -4,11 +4,10 @@ feature 'Social media' do
 
   before { login_page.login(VALID_NAME, VALID_PASSWORD) }
 
-  it 'user is able to visit socials media and check about page' do
+  it 'user is able to visit socials media and check about page', tag: 'smoke' do
     # check social media
     media = { 'twitter' => TWITTER_URL,
-              'facebook' => FACEBOOK_URL,
-              'linkedin' => LINKEDIN_URL }
+              'facebook' => FACEBOOK_URL }
     media.each do |key, value|
       new_window = products_page.social_media(key)
       within_window new_window do

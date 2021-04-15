@@ -6,7 +6,7 @@ feature 'Cart' do
 
   before { login_page.login(VALID_NAME, VALID_PASSWORD) }
 
-  it 'user is able to add one product to cart from products page and remove product' do
+  it 'user is able to add one product to cart from products page and remove product', tag: 'smoke' do
     pages = { 'products_page' => products_page, 'product_page' => product_page }
     pages.each do |key, value|
       # reset all products from carts
