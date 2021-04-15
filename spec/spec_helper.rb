@@ -6,7 +6,13 @@ require 'site_prism/all_there'
 require 'pry'
 require 'pry-byebug'
 require 'rspec/retry'
+require 'capybara-screenshot/rspec'
+
 Dir["#{File.dirname(__FILE__)}/pages/**/*.rb"].each { |file| require file.to_s }
+
+Capybara.save_path = "spec/tmp"
+Capybara::Screenshot.prune_strategy = :keep_last_run
+
 
 Capybara.run_server = false
 Capybara.default_driver = :selenium
@@ -33,7 +39,7 @@ RSpec.configure do |config|
   config.display_try_failure_messages = true
 
   config.around do |ex|
-    ex.run_with_retry retry: 3
+    ex.run_with_retry retry: 1
   end
 
   config.retry_callback = proc do |ex|
