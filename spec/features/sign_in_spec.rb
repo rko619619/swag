@@ -3,7 +3,7 @@ feature 'Sign in' do
 
   it 'user is able to log in with valid email and password', tag: 'smoke' do
     login_page.login(VALID_NAME, VALID_PASSWORD)
-    expect(current_url).to eq PRODUCTS_PAGE
+    expect(current_url).to eq '1'
   end
 
   it 'user is not able to log in with invalid email and password', tag: 'smoke' do

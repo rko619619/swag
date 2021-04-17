@@ -10,10 +10,15 @@ require 'capybara-screenshot/rspec'
 
 Dir["#{File.dirname(__FILE__)}/pages/**/*.rb"].each { |file| require file.to_s }
 
-# for screenshot
+# config for screenshot
 Capybara.save_path = 'spec/tmp'
 Capybara::Screenshot.prune_strategy = :keep_last_run
 
+Capybara::Screenshot.register_filename_prefix_formatter(:rspec) do |example|
+  "screenshot_#{example.description.gsub(' ', '-').gsub(/^.*\/spec\//,'')}"
+end
+
+# config for drive
 Capybara.run_server = false
 Capybara.default_driver = :selenium
 
