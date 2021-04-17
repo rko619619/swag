@@ -90,3 +90,15 @@ It's recommended to install and Integrated Developer Environment, or a text edit
 * [RubyMine](https://www.jetbrains.com/ruby/download/) free trial, paid after 30 days, developed by JetBrains.
 * [Komodo Edit](https://www.activestate.com/komodo-edit), free, text editor, stripped down version of [Komodo IDE](https://www.activestate.com/products/komodo-ide/features/) (paid version).
 * [NetBeans](https://netbeans.apache.org/download/index.html) free, open source IDE developed by Apache. Contains source binaries that you must download and compile.
+
+### Install Google Chrome 
+
+[GoogleChrome](https://www.google.com/chrome/) is a cross-platform web browser developed by Google. It was first released in 2008 for Microsoft Windows built with free software components from Apple WebKit and Mozilla Firefox. It was later ported to Linux, macOS, iOS, and Android where it is the default browser built into the OS. The browser is also the main component of Chrome OS, where it serves as the platform for web applications.
+Most of Chrome's source code comes from Google's free and open-source software project Chromium, but Chrome is licensed as proprietary freeware. WebKit was the original rendering engine, but Google eventually forked it to create the Blink engine; all Chrome variants except iOS now use Blink.
+
+
+
+##### Google Chrome:
+
+1. Go to [https://www.google.com/chrome/](https://www.google.com/chrome/).
+2. Click **Downloads**.

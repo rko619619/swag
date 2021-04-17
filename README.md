@@ -9,7 +9,9 @@ In order to complete these exercises you must complete the following prerequisit
 * Install [Git](https://github.com/rko619619/swag/blob/main/docs/prerequisites.md#install-git)
 * Install [Ruby](https://github.com/rko619619/swag/blob/main/docs/prerequisites.md#install-ruby)
 * Install an [IDE](https://github.com/rko619619/swag/blob/main/docs/prerequisites.md#install-an-ide)
-* [Setup the Project](#setup-the-project)
+* Install [Google Chrome](https://github.com/rko619619/swag/blob/main/docs/prerequisites.md#install-google-chrome)
+
+[Setup the Project](#setup-the-project)
 
 
 
