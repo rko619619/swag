@@ -6,7 +6,7 @@ Swag is a ruby project.The demo scripts in this repository allow you to run simp
 
 In order to complete these exercises you must complete the following prerequisite installation and configuration steps:
 
-* Install [Git](https://github.com/rko619619/swag/blob/main/prerequisites.md#install-git)
+* Install [Git](https://github.com/rko619619/swag/blob/main/docs/prerequisites.md#install-git)
 * Install [Ruby](https://github.com/rko619619/swag/blob/main/docs/prerequisites.md#install-ruby)
 * Install an [IDE](https://github.com/rko619619/swag/blob/main/docs/prerequisites.md#install-an-ide)
 * [Setup the Project](#setup-the-project)
