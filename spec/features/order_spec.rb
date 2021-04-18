@@ -1,4 +1,4 @@
-feature 'Cart' do
+feature 'Order' do
   let(:login_page)      { LoginPage.new    }
   let(:products_page)   { ProductsPage.new }
   let(:product_page)    { ProductPage.new  }
