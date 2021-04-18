@@ -9,6 +9,7 @@ class ProductsPage < SitePrism::Page
   element :products_price, :xpath, '//*[@id="inventory_container"]/div/div[1]/div[2]/div[2]/div'
   element :products_btn, '#add-to-cart-sauce-labs-backpack'
   element :products_remove, '.btn_secondary'
+  element :checkout_btn, '.btn_action'
 
   def social_media(social_media)
     window_opened_by { find(".social_#{social_media}").click }
@@ -46,5 +47,9 @@ class ProductsPage < SitePrism::Page
 
   def click_on_product
     products_name.click
+  end
+
+  def click_on_checkout_btn
+    checkout_btn.click
   end
 end

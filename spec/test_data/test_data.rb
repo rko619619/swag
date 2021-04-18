@@ -21,3 +21,10 @@ TWITTER_URL = 'https://twitter.com/saucelabs'.freeze
 FACEBOOK_URL = 'https://www.facebook.com/saucelabs'.freeze
 LINKEDIN_URL = 'https://www.linkedin.com/company/sauce-labs/'.freeze
 ABOUT_URL = 'https://saucelabs.com/'.freeze
+
+# order data
+ORDER_DATA = 'TEST_DATA'.freeze
+SHIPPING_INFORMATION = 'FREE PONY EXPRESS DELIVERY!'.freeze
+COMPLETE_HEADER = 'THANK YOU FOR YOUR ORDER'.freeze
+COMPLETE_TEXT = 'Your order has been dispatched, and will arrive just as fast as the pony can get there!'.freeze
+COMPLETE_IMG_URL = 'https://www.saucedemo.com/static/media/pony-express.46394a5d.png'.freeze

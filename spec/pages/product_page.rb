@@ -5,6 +5,7 @@ class ProductPage < SitePrism::Page
   element :product_btn, '.btn_primary'
   element :product_remove, '.btn_small'
   element :cart_icon, '.shopping_cart_link'
+  element :checkout_btn, '.btn_action'
 
   def get_information_attributes
     [product_name.text, product_description.text, product_price.text, '1']
@@ -20,5 +21,9 @@ class ProductPage < SitePrism::Page
 
   def click_on_cart_icon
     cart_icon.click
+  end
+
+  def click_on_checkout_btn
+    checkout_btn.click
   end
 end

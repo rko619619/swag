@@ -15,7 +15,7 @@ Capybara.save_path = 'spec/tmp'
 Capybara::Screenshot.prune_strategy = :keep_last_run
 
 Capybara::Screenshot.register_filename_prefix_formatter(:rspec) do |example|
-  "screenshot_#{example.description.gsub(' ', '-').gsub(/^.*\/spec\//,'')}"
+  "screenshot_#{example.description.tr(' ', '-').gsub(/^.*\/spec\//, '')}"
 end
 
 # config for drive
