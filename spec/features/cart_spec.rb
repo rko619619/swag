@@ -11,7 +11,7 @@ feature 'Cart' do
     pages.each do |key, value|
       # reset all products from carts
       products_page.click_on_reset_btn
-      visit(PRODUCTS_PAGE)
+      visit PRODUCTS_PAGE
       products_page.click_on_product if key == 'product_page'
 
       information_products = value.get_information_attributes

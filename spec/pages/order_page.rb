@@ -15,10 +15,10 @@ class OrderPage < SitePrism::Page
   element :complete_text, '.complete-text'
   element :complete_img, '.pony_express'
 
-  def checkout_information(test_data)
-    order_first_name.set(test_data)
-    order_last_name.set(test_data)
-    order_postal_code.set(test_data)
+  def checkout_information(first_name, last_name, postal_code)
+    order_first_name.set(first_name)
+    order_last_name.set(last_name)
+    order_postal_code.set(postal_code)
     continue_btn.click
   end
 
@@ -34,12 +34,32 @@ class OrderPage < SitePrism::Page
     [order_item_total.text, order_item_tax.text, order_total.text]
   end
 
+  def get_price
+    order_price.text
+  end
+
   def get_convert_price
-    order_item_price = order_price.text
-    order_item_total = order_item_price[1..-1].to_f
-    order_item_tax = format('%.2f', (order_item_total * 0.08))
-    order_total = (order_item_total + order_item_tax.to_f)
-    ["Item total: $#{order_item_total}", "Tax: $#{order_item_tax}", "Total: $#{order_total}"]
+    order_item_price = get_price
+    item_total = get_item_total(order_item_price)
+    tax = get_item_tax(item_total)
+    total = get_total(item_total, tax)
+    get_order_attributes(item_total, tax, total)
+  end
+
+  def get_order_attributes(item_total, tax, total)
+    ["Item total: $#{item_total}", "Tax: $#{tax}", "Total: $#{total}"]
+  end
+
+  def get_item_total(order_item_price)
+    order_item_price[1..-1].to_f
+  end
+
+  def get_item_tax(total)
+    format('%.2f', (total * 0.08))
+  end
+
+  def get_total(total, tax)
+    order_total = total + tax.to_f
   end
 
   def click_on_finish_btn

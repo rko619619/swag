@@ -4,6 +4,7 @@ feature 'Order' do
   let(:product_page)    { ProductPage.new  }
   let(:cart_page)       { CartPage.new     }
   let(:order_page)      { OrderPage.new    }
+
   before { login_page.login(VALID_NAME, VALID_PASSWORD) }
 
   it 'user is able to order product from products page and product page', tag: 'smoke' do
@@ -11,7 +12,7 @@ feature 'Order' do
     pages.each do |key, value|
       # reset all products from carts
       products_page.click_on_reset_btn
-      visit(PRODUCTS_PAGE)
+      visit PRODUCTS_PAGE
       products_page.click_on_product if key == 'product_page'
 
       # add a product
@@ -25,7 +26,7 @@ feature 'Order' do
       value.click_on_checkout_btn
 
       # set information for order
-      order_page.checkout_information(ORDER_DATA)
+      order_page.checkout_information(FIRST_NAME, LAST_NAME, POSTAL_CODE)
 
       # check correct order attributes
       expect(order_page.get_information_attributes).to eq information_cart

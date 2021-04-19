@@ -1,4 +1,4 @@
 --require spec_helper
---require test_data/test_data.rb
+--require test_data.rb
 --format html
---out spec/html_report/rspec_results.html
+--out swag/html_report/rspec_results.html

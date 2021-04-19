@@ -46,13 +46,13 @@ In order to complete these exercises you must complete the following prerequisit
    ### Running Tests
 * Run all specs in project:
     ```
-  $ bundle rspec spec
+  $ rspec spec
   ```
 * Run tests in parallel on default configuration:
   ```
-  $ bundle exec rake parallel
+  $ rake parallel
   ```
-* Run one test(for example)
+* If you want run one test(for example)
   ```
-  $ bundle rspec spec/features/sign_in_spec.rb
+  $ rspec spec/features/sign_in_spec.rb:
   ```

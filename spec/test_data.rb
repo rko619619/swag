@@ -23,7 +23,9 @@ LINKEDIN_URL = 'https://www.linkedin.com/company/sauce-labs/'.freeze
 ABOUT_URL = 'https://saucelabs.com/'.freeze
 
 # order data
-ORDER_DATA = 'TEST_DATA'.freeze
+FIRST_NAME = 'First Name'.freeze
+LAST_NAME = 'Last Name'.freeze
+POSTAL_CODE = 'Postal Code'.freeze
 SHIPPING_INFORMATION = 'FREE PONY EXPRESS DELIVERY!'.freeze
 COMPLETE_HEADER = 'THANK YOU FOR YOUR ORDER'.freeze
 COMPLETE_TEXT = 'Your order has been dispatched, and will arrive just as fast as the pony can get there!'.freeze

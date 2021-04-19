@@ -11,6 +11,7 @@ require 'capybara-screenshot/rspec'
 Dir["#{File.dirname(__FILE__)}/pages/**/*.rb"].each { |file| require file.to_s }
 
 # config for screenshot
+FileUtils.rm_rf Dir.glob('spec/tmp/*')
 Capybara.save_path = 'spec/tmp'
 Capybara::Screenshot.prune_strategy = :keep_last_run
 

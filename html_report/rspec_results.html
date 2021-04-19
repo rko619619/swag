@@ -281,46 +281,77 @@ a {
 <div class="results">
 <div id="div_group_1" class="example_group passed">
   <dl style="margin-left: 0px;">
-  <dt id="example_group_1" class="passed">Cart</dt>
-    <script type="text/javascript">moveProgressBar('10.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">user is able to add one product to cart from products page and remove product</span><span class='duration'>5.39690s</span></dd>
+  <dt id="example_group_1" class="passed">Sign in</d  </dl>
+</div>
+e="text/javascript">moveProgressBar('20.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">user is able to add one product to cart from products page and remove product</span><span class='duration'>4.85494s</span></dd>
   </dl>
 </div>
 <div id="div_group_2" class="example_group passed">
   <dl style="margin-left: 0px;">
-  <dt id="example_group_2" class="passed">Cart</dt>
-    <script type="text/javascript">moveProgressBar('20.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">user is able to order product from products page and product page</span><span class='duration'>2.85515s</span></dd>
+  <dt id="example_group_2" class="passed">Order</dt>
+    <script type="text/javascript">moveProgressBar('40.0');</script>
+    <dd class="example passed"><span class="passed_spec_name">user is able to order product from products page and product page</span><span class='duration'>3.13179s</span></dd>
   </dl>
 </div>
 <div id="div_group_3" class="example_group passed">
   <dl style="margin-left: 0px;">
   <dt id="example_group_3" class="passed">Sign in</dt>
-    <script type="text/javascript">moveProgressBar('30.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">user is able to log in with valid email and password</span><span class='duration'>0.36312s</span></dd>
-    <script type="text/javascript">moveProgressBar('40.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">user is not able to log in with invalid email and password</span><span class='duration'>0.39440s</span></dd>
-    <script type="text/javascript">moveProgressBar('50.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">user is not able to log in with empty email and empty password</span><span class='duration'>0.61789s</span></dd>
+    <script type="text/javascript">makeRed('rspec-header');</script>
+    <script type="text/javascript">makeRed('div_group_3');</script>
+    <script type="text/javascript">makeRed('example_group_3');</script>
     <script type="text/javascript">moveProgressBar('60.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">user is not able to log in with empty username and not empty password</span><span class='duration'>0.55612s</span></dd>
-    <script type="text/javascript">moveProgressBar('70.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">user is not able to log in with not empty username and empty password</span><span class='duration'>0.58976s</span></dd>
+    <dd class="example failed">
+      <span class="failed_spec_name">user is able to log in with valid email and password</span>
+      <span class="duration">1.64163s</span>
+      <div class="failure" id="failure_1">
+        <div class="message"><pre>  Failure/Error: [0m[32mexpect[0m(current_url).to eq [31m[1;31m&#39;[0m[31m1[1;31m&#39;[0m[31m[0m
+
+    expected: &quot;1&quot;
+         got: &quot;https://www.saucedemo.com/inventory.html&quot;
+
+    (compared using ==)
+  # ./spec/features/sign_in_spec.rb:6:in `block (2 levels) in &lt;top (required)&gt;&#39;
+  # /var/lib/gems/2.7.0/gems/rspec-retry-0.6.2/lib/rspec/retry.rb:124:in `block in run&#39;
+  # /var/lib/gems/2.7.0/gems/rspec-retry-0.6.2/lib/rspec/retry.rb:110:in `loop&#39;
+  # /var/lib/gems/2.7.0/gems/rspec-retry-0.6.2/lib/rspec/retry.rb:110:in `run&#39;
+  # /var/lib/gems/2.7.0/gems/rspec-retry-0.6.2/lib/rspec_ext/rspec_ext.rb:12:in `run_with_retry&#39;
+  # ./spec/spec_helper.rb:47:in `block (2 levels) in &lt;top (required)&gt;&#39;
+  # /var/lib/gems/2.7.0/gems/rspec-retry-0.6.2/lib/rspec/retry.rb:124:in `block in run&#39;
+  # /var/lib/gems/2.7.0/gems/rspec-retry-0.6.2/lib/rspec/retry.rb:110:in `loop&#39;
+  # /var/lib/gems/2.7.0/gems/rspec-retry-0.6.2/lib/rspec/retry.rb:110:in `run&#39;
+  # /var/lib/gems/2.7.0/gems/rspec-retry-0.6.2/lib/rspec_ext/rspec_ext.rb:12:in `run_with_retry&#39;
+  # /var/lib/gems/2.7.0/gems/rspec-retry-0.6.2/lib/rspec/retry.rb:37:in `block (2 levels) in setup&#39;</pre></div>
+        <div class="backtrace"><pre>./spec/features/sign_in_spec.rb:6:in `block (2 levels) in &lt;top (required)&gt;&#39;
+/var/lib/gems/2.7.0/gems/rspec-retry-0.6.2/lib/rspec/retry.rb:124:in `block in run&#39;
+/var/lib/gems/2.7.0/gems/rspec-retry-0.6.2/lib/rspec/retry.rb:110:in `loop&#39;
+/var/lib/gems/2.7.0/gems/rspec-retry-0.6.2/lib/rspec/retry.rb:110:in `run&#39;
+/var/lib/gems/2.7.0/gems/rspec-retry-0.6.2/lib/rspec_ext/rspec_ext.rb:12:in `run_with_retry&#39;
+./spec/spec_helper.rb:47:in `block (2 levels) in &lt;top (required)&gt;&#39;
+/var/lib/gems/2.7.0/gems/rspec-retry-0.6.2/lib/rspec/retry.rb:124:in `block in run&#39;
+/var/lib/gems/2.7.0/gems/rspec-retry-0.6.2/lib/rspec/retry.rb:110:in `loop&#39;
+/var/lib/gems/2.7.0/gems/rspec-retry-0.6.2/lib/rspec/retry.rb:110:in `run&#39;
+/var/lib/gems/2.7.0/gems/rspec-retry-0.6.2/lib/rspec_ext/rspec_ext.rb:12:in `run_with_retry&#39;
+/var/lib/gems/2.7.0/gems/rspec-retry-0.6.2/lib/rspec/retry.rb:37:in `block (2 levels) in setup&#39;</pre></div>
+    <pre class="ruby"><code><span class="linenum">4</span>  <span class="keyword">it</span> <span class="string"><span class="delimiter">'</span><span class="content">user is able to log in with valid email and password</span><span class="delimiter">'</span></span>, <span class="key">tag</span>: <span class="string"><span class="delimiter">'</span><span class="content">smoke</span><span class="delimiter">'</span></span> <span class="keyword">do</span>
+<span class="linenum">5</span>    login_page.login(<span class="constant">VALID_NAME</span>, <span class="constant">VALID_PASSWORD</span>)
+<span class="offending"><span class="linenum">6</span>    <span class="keyword">expect</span>(current_url).to eq <span class="string"><span class="delimiter">'</span><span class="content">1</span><span class="delimiter">'</span></span></span>
+<span class="linenum">7</span>  <span class="keyword">end</span></code></pre><p>Saved files: <a href="file://spec/tmp/screenshot_user-is-able-to-log-in-with-valid-email-and-password_2021-04-18-22-52-15.543.html" style="margin-right: 10px; font-weight: bold">HTML page</a><a href="file://spec/tmp/screenshot_user-is-able-to-log-in-with-valid-email-and-password_2021-04-18-22-52-15.543.png" style="margin-right: 10px; font-weight: bold">Screenshot</a></p>
+      </div>
+    </dd>
     <script type="text/javascript">moveProgressBar('80.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">locked out user is not able to log in with valid username and password</span><span class='duration'>0.95157s</span></dd>
-    <script type="text/javascript">moveProgressBar('90.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">user is not allowed to visit other pages without autorization</span><span class='duration'>0.33487s</span></dd>
+    <dd class="example passed"><span class="passed_spec_name">user is not able to log in with invalid email and password</span><span class='duration'>0.32334s</span></dd>
   </dl>
 </div>
 <div id="div_group_4" class="example_group passed">
   <dl style="margin-left: 0px;">
   <dt id="example_group_4" class="passed">Social media</dt>
     <script type="text/javascript">moveProgressBar('100.0');</script>
-    <dd class="example passed"><span class="passed_spec_name">user is able to visit socials media and check about page</span><span class='duration'>13.75989s</span></dd>
+    <dd class="example passed"><span class="passed_spec_name">user is able to visit socials media and check about page</span><span class='duration'>8.64308s</span></dd>
   </dl>
 </div>
-<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>25.82757 seconds</strong>";</script>
-<script type="text/javascript">document.getElementById('totals').innerHTML = "10 examples, 0 failures";</script>
+<script type="text/javascript">document.getElementById('duration').innerHTML = "Finished in <strong>18.68816 seconds</strong>";</script>
+<script type="text/javascript">document.getElementById('totals').innerHTML = "5 examples, 1 failure";</script>
 </div>
 </div>
 </body>
