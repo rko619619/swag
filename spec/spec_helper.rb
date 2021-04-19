@@ -23,16 +23,27 @@ end
 
 # config for drive
 Capybara.run_server = false
+
 Capybara.default_driver = :selenium
 
-Capybara.register_driver :selenium do |app|
+Capybara.register_driver :selenium_chrome do |app|
   browser_options = ::Selenium::WebDriver::Chrome::Options.new.tap do |opts|
     opts.args << '--start-maximized'
     opts.args << '--headless'
     opts.args << '--disable-extensions'
   end
-  Capybara::Selenium::Driver.new(app, browser: :chrome, options: browser_options)
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: browser_options )
 end
+
+Capybara.register_driver :selenium do |app|
+  browser_options = ::Selenium::WebDriver::Firefox::Options.new.tap do |opts|
+    opts.args << '--start-maximized'
+    opts.args << '--headless'
+    opts.args << '--disable-extensions'
+  end
+  Capybara::Selenium::Driver.new(app, browser: :firefox, options: browser_options )
+end
+
 
 RSpec.configure do |config|
   config.include Capybara::DSL
@@ -47,7 +58,7 @@ RSpec.configure do |config|
   config.display_try_failure_messages = true
 
   config.around do |ex|
-    ex.run_with_retry retry: 3
+    ex.run_with_retry retry: 1
   end
 
   config.retry_callback = proc do |_ex|
