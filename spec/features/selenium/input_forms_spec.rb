@@ -26,8 +26,15 @@ feature 'Checkbox Demo' do
 
   it 'user is able to click multiple checkbox', tag: 'smoke' do
     checkbox_form.click_multiple_checkbox
+    [OPTION1, OPTION2, OPTION3, OPTION4].each do |option|
+      expect(checkbox_form).to have_checked_field(option)
+    end
     expect(checkbox_form.get_checkbox_text).to eq UNCHECK_ALL
+
     checkbox_form.click_multiple_checkbox
+    [OPTION1, OPTION4, OPTION4, OPTION4].each do |option|
+      expect(checkbox_form).to have_unchecked_field(option)
+    end
     expect(checkbox_form.get_checkbox_text).to eq CHECK_ALL
   end
 end

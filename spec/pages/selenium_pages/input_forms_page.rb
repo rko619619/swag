@@ -55,4 +55,8 @@ class CheckboxFormPage < SitePrism::Page
   def get_checkbox_text
     multiple_checkbox.value
   end
+
+  def check_checkbox
+    [checked?('Option 1'), checked?('Option 2'), check?('Option 3'), check?('Option 4')]
+  end
 end
