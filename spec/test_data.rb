@@ -1,6 +1,6 @@
 # urls
 LOGIN_PAGE = 'https://www.saucedemo.com'.freeze
-PRODUCTS_PAGE = 'https://www.saucedemo.com/inventory.html'.freeze
+PRODUCTS_PAGE = "https://www.saucedemo.com/inventory.html".freeze
 
 # user data
 INVALID_NAME = 'Username'.freeze
