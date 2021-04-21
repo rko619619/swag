@@ -6,7 +6,7 @@ class LoginPage < SitePrism::Page
   element :error_button, '.error-button'
 
   def login(username, password)
-    visit LOGIN_PAGE
+    visit BASE_URL
     user_name.set(username)
     user_password.set(password)
     click_button.click

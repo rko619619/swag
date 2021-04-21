@@ -1,6 +1,7 @@
+## for saucedemo
 # urls
-LOGIN_PAGE = 'https://www.saucedemo.com'.freeze
-PRODUCTS_PAGE = "https://www.saucedemo.com/inventory.html".freeze
+BASE_URL_SAUCEDEMO = 'https://www.saucedemo.com'.freeze
+PRODUCTS_PAGE = "#{BASE_URL_SAUCEDEMO}/inventory.html".freeze
 
 # user data
 INVALID_NAME = 'Username'.freeze
@@ -30,3 +31,27 @@ SHIPPING_INFORMATION = 'FREE PONY EXPRESS DELIVERY!'.freeze
 COMPLETE_HEADER = 'THANK YOU FOR YOUR ORDER'.freeze
 COMPLETE_TEXT = 'Your order has been dispatched, and will arrive just as fast as the pony can get there!'.freeze
 COMPLETE_IMG_URL = 'https://www.saucedemo.com/static/media/pony-express.46394a5d.png'.freeze
+
+## for selenium
+# urls
+BASE_URL_SELENIUM = 'https://www.seleniumeasy.com/test/'.freeze
+
+# input forms urls
+SIMPLE_FORM_DEMO = "#{BASE_URL_SELENIUM}/basic-first-form-demo.html".freeze
+CHECKBOX_DEMO = "#{BASE_URL_SELENIUM}/basic-checkbox-demo.html".freeze
+RADIO_BUTTONS_DEMO = "#{BASE_URL_SELENIUM}/basic-radiobutton-demo.html".freeze
+SELECT_DROPDOWN_DEMO = "#{BASE_URL_SELENIUM}/basic-select-dropdown-demo.html".freeze
+INPUT_FORM_SUBMIT = "#{BASE_URL_SELENIUM}/input-form-demo.html".freeze
+AJAX_FORM_SUBMIT = "#{BASE_URL_SELENIUM}/ajax-form-submit-demo.html".freeze
+JQUERY_SELECT_DROPDOWN = "#{BASE_URL_SELENIUM}/jquery-dropdown-search-demo.html".freeze
+
+# simple form demo
+MESSAGE_SINGLE_FIELD = 'My message'
+TOTAL_FIRST_FIELD = '1'
+TOTAL_SECOND_FIELD = '2'
+TOTAL_FIELD = '3'
+
+# checkbox demo
+MESSAGE_CHECKBOX_FIELD = 'Success - Check box is checked'
+UNCHECK_ALL = 'Uncheck All'
+CHECK_ALL = 'Check All'
