@@ -1,35 +1,34 @@
 feature 'Input forms' do
-  let(:simple_form)     { SimpleFormPage.new }
-  let(:checkbox_form)   { CheckboxFormPage.new }
+  let(:simple_form)          { SimpleFormPage.new }
+  let(:checkbox_form)        { CheckboxFormPage.new }
   let(:radio_buttons_form)   { RadioButtonsPage.new }
+  let(:dropdown_form)        { DropdownFormPage.new }
 
-  context 'Simple Form', tag: 'smoke'do
+  context 'Simple Form', tag: 'smoke' do
+    before { visit SIMPLE_FORM_DEMO }
+
     it 'user is able to enter message to single input field' do
-      visit SIMPLE_FORM_DEMO
-
       simple_form.fill_single_filed
       expect(simple_form.get_message).to eq MESSAGE_SINGLE_FIELD
     end
 
     it 'user is able to enter message to two input fields' do
-      visit SIMPLE_FORM_DEMO
-
-      simple_form.fill_multiple_field(1,2)
-      expect(simple_form.get_total).to eq '3'
+      value_a = rand(50)
+      value_b = rand(50)
+      simple_form.fill_multiple_field(value_a, value_b)
+      expect(simple_form.get_total).to eq (value_a + value_b).to_s
     end
   end
 
   context 'Checkbox', tag: 'smoke' do
-    it 'user is able to click single checkbox' do
-      visit CHECKBOX_DEMO
+    before { visit CHECKBOX_DEMO }
 
+    it 'user is able to click single checkbox' do
       checkbox_form.click_single_checkbox
       expect(checkbox_form.get_message).to eq MESSAGE_CHECKBOX_FIELD
     end
 
     it 'user is able to click multiple checkbox' do
-      visit CHECKBOX_DEMO
-
       checkbox_form.click_multiple_checkbox
       checkbox_options('check')
       expect(checkbox_form.get_checkbox_text).to eq UNCHECK_ALL
@@ -41,26 +40,51 @@ feature 'Input forms' do
   end
 
   context 'Radio buttons', tag: 'smoke' do
-    it 'user is able to click on button to get the selected value' do
-      visit RADIO_BUTTONS_DEMO
-      (radio_buttons_form.gender_radio_btn).each do |radio_btn|
+    before { visit RADIO_BUTTONS_DEMO }
+
+    it 'user is able to click on single radio button and get the selected value' do
+      radio_buttons_form.single_radio_btn.each do |radio_btn|
         radio_buttons_form.click_radio_btn(radio_btn)
         radio_buttons_form.click_message_btn
         expect(page).to have_content(radio_buttons_form.get_message_radio(radio_btn))
       end
     end
 
-    it 'user is able to click on button to get the selected values from Group Sex and Age group' do
-      visit RADIO_BUTTONS_DEMO
-      (radio_buttons_form.genders_radio_btn).each do |gender_radio_btn|
-        (radio_buttons_form.age_radio_btn).each do |age_radio_btn|
+    it 'user is able to click on group radio button and get the selected values from Group Sex and Age group' do
+      radio_buttons_form.gender_radio_btn.each do |gender_radio_btn|
+        radio_buttons_form.age_radio_btn.each do |age_radio_btn|
           radio_buttons_form.click_group_radio_btn(gender_radio_btn, age_radio_btn)
           radio_buttons_form.get_values
-          expect(radio_buttons_form.values_total).to eq(radio_buttons_form.get_values_radio(gender_radio_btn, age_radio_btn))
+          expect(radio_buttons_form.get_values_radio(gender_radio_btn, age_radio_btn)).to eq(radio_buttons_form.values_total)
         end
       end
     end
   end
+
+  context 'Select list', tag: 'smoke' do
+    before { visit SELECT_DROPDOWN_DEMO }
+
+    it 'user is able to select value from the list' do
+      dropdown_form.single_options_list.each do |option|
+        dropdown_form.choose_option(option)
+        expect(dropdown_form.get_single_values(option)).to eq dropdown_form.get_selected_values
+      end
+    end
+
+    it "user is able to click on 'First selected' button and get value from the list" do
+      dropdown_form.multi_options_list.each do |option|
+        dropdown_form.choose_option(option)
+        dropdown_form.click_first_btn
+        expect(dropdown_form.get_multi_values(option)).to eq dropdown_form.get_selected_multi_values
+      end
+    end
+
+    it "user is able to click on 'Get all Selected' button and get value from the list" do
+      dropdown_form.multi_options_list.each do |option|
+        dropdown_form.choose_option(option)
+        dropdown_form.click_all_btn
+        expect(dropdown_form.get_multi_all_values(option)).to eq dropdown_form.get_selected_multi_values
+      end
+    end
+  end
 end
-
-
