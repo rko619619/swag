@@ -47,9 +47,6 @@ JQUERY_SELECT_DROPDOWN = "#{BASE_URL_SELENIUM}/jquery-dropdown-search-demo.html"
 
 # simple form demo
 MESSAGE_SINGLE_FIELD = 'My message'
-TOTAL_FIRST_FIELD = '1'
-TOTAL_SECOND_FIELD = '2'
-TOTAL_FIELD = '3'
 
 # checkbox demo
 MESSAGE_CHECKBOX_FIELD = 'Success - Check box is checked'
@@ -59,3 +56,6 @@ OPTION1 = 'Option 1'
 OPTION2 = 'Option 2'
 OPTION3 = 'Option 3'
 OPTION4 = 'Option 4'
+
+# radio buttons
+GENDERS = ["Radio button 'Male' is checked", "Radio button 'Female' is checked"]
