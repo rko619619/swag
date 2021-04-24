@@ -104,3 +104,7 @@ VALID_CITY = 'Minsk'
 VALID_ZIP_CODE = '1111'
 VALID_DESCRIPTION = 'testtesttest'
 VALID_STATE = 'Alabama'
+
+# ajax form
+PROCCESING_MSG = 'Ajax Request is Processing!'
+SUCCESS_MSG = 'Form submited Successfully!'

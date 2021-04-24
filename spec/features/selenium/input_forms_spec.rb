@@ -4,6 +4,7 @@ feature 'Input forms' do
   let(:radio_buttons_form)   { RadioButtonsPage.new }
   let(:dropdown_form)        { DropdownFormPage.new }
   let(:input_form)           { InputFormPage.new    }
+  let(:ajax_form)            { AjaxFormPage.new     }
 
   context 'Simple Form', tag: 'smoke' do
     before { visit SIMPLE_FORM_DEMO }
@@ -102,10 +103,22 @@ feature 'Input forms' do
       expect(input_form.get_messages).to eq INVALID_LIST
     end
 
-    it "user is able to send form, with valid value " do
+    it 'user is able to send form, with valid value ' do
       input_form.fill_form_valid
       input_form.click_send_btn
       expect(input_form.get_messages).to eq []
+    end
+  end
+
+  context 'Ajax Form Submit with Loading icon ', tag: 'smoke' do
+    before { visit AJAX_FORM_SUBMIT }
+
+    it 'user is able to fill ajax form' do
+      ajax_form.fill_form
+      ajax_form.click_submit_btn
+      expect(ajax_form.get_proccesing_msg).to eq PROCCESING_MSG
+      sleep(2)
+      expect(ajax_form.get_proccesing_msg).to eq SUCCESS_MSG
     end
   end
 end
