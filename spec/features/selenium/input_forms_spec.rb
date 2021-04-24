@@ -1,8 +1,9 @@
 feature 'Input forms' do
-  let(:simple_form)          { SimpleFormPage.new }
+  let(:simple_form)          { SimpleFormPage.new   }
   let(:checkbox_form)        { CheckboxFormPage.new }
   let(:radio_buttons_form)   { RadioButtonsPage.new }
   let(:dropdown_form)        { DropdownFormPage.new }
+  let(:input_form)           { InputFormPage.new    }
 
   context 'Simple Form', tag: 'smoke' do
     before { visit SIMPLE_FORM_DEMO }
@@ -85,6 +86,26 @@ feature 'Input forms' do
         dropdown_form.click_all_btn
         expect(dropdown_form.get_multi_all_values(option)).to eq dropdown_form.get_selected_multi_values
       end
+    end
+  end
+
+  context 'Input form with validations', tag: 'smoke' do
+    before { visit INPUT_FORM_SUBMIT }
+
+    it 'user is not able to send form, with empty value' do
+      input_form.click_send_btn
+      expect(input_form.get_messages).to eq EMPTY_LIST
+    end
+
+    it 'user is not able to send form, with unvalid value' do
+      input_form.fill_form_unvalid
+      expect(input_form.get_messages).to eq INVALID_LIST
+    end
+
+    it "user is able to send form, with valid value " do
+      input_form.fill_form_valid
+      input_form.click_send_btn
+      expect(input_form.get_messages).to eq []
     end
   end
 end

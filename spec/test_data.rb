@@ -46,16 +46,61 @@ AJAX_FORM_SUBMIT = "#{BASE_URL_SELENIUM}/ajax-form-submit-demo.html".freeze
 JQUERY_SELECT_DROPDOWN = "#{BASE_URL_SELENIUM}/jquery-dropdown-search-demo.html".freeze
 
 # simple form demo
-MESSAGE_SINGLE_FIELD = 'My message'
+MESSAGE_SINGLE_FIELD = 'My message'.freeze
 
 # checkbox demo
-MESSAGE_CHECKBOX_FIELD = 'Success - Check box is checked'
-UNCHECK_ALL = 'Uncheck All'
-CHECK_ALL = 'Check All'
-OPTION1 = 'Option 1'
-OPTION2 = 'Option 2'
-OPTION3 = 'Option 3'
-OPTION4 = 'Option 4'
+MESSAGE_CHECKBOX_FIELD = 'Success - Check box is checked'.freeze
+UNCHECK_ALL = 'Uncheck All'.freeze
+CHECK_ALL = 'Check All'.freeze
+OPTION1 = 'Option 1'.freeze
+OPTION2 = 'Option 2'.freeze
+OPTION3 = 'Option 3'.freeze
+OPTION4 = 'Option 4'.freeze
 
-# radio buttons
-GENDERS = ["Radio button 'Male' is checked", "Radio button 'Female' is checked"]
+# input form
+BASE_EMPTY_MESSAGE = 'Please supply'.freeze
+EMPTY_FIRST_NAME = "#{BASE_EMPTY_MESSAGE} your first name".freeze
+EMPTY_LAST_NAME = "#{BASE_EMPTY_MESSAGE} your last name".freeze
+EMPTY_EMAIL_ADDRESS = "#{BASE_EMPTY_MESSAGE} your email address".freeze
+EMPTY_PHONE_NUMBER = "#{BASE_EMPTY_MESSAGE} your phone number".freeze
+EMPTY_STREET_ADDRESS = "#{BASE_EMPTY_MESSAGE} your street address".freeze
+EMPTY_CITY = "#{BASE_EMPTY_MESSAGE} your city".freeze
+EMPTY_STATE = "Please select your state".freeze
+EMPTY_ZIP_CODE = "#{BASE_EMPTY_MESSAGE} your zip code".freeze
+EMPTY_DESCRIPTION = "#{BASE_EMPTY_MESSAGE} a description of your project".freeze
+EMPTY_LIST = [EMPTY_FIRST_NAME,
+              EMPTY_LAST_NAME,
+              EMPTY_EMAIL_ADDRESS,
+              EMPTY_PHONE_NUMBER,
+              EMPTY_STREET_ADDRESS,
+              EMPTY_CITY,
+              EMPTY_STATE,
+              EMPTY_ZIP_CODE,
+              EMPTY_DESCRIPTION
+]
+INVALID_VALUE = '1'
+INVALID_FIRST_NAME_MSG = 'Please enter more than 2 characters'
+INVALID_EMAIL_MSG = 'Please supply a valid email address'
+INVALID_PHONE_MSG = 'Please supply a vaild phone number with area code'
+INVALID_ADDRESS_MSG = 'Please enter more than 8 characters'
+INVALID_CITY_MSG = 'Please enter more than 4 characters'
+INVALID_ZIP_CODE_MSG = 'Please supply a vaild zip code'
+INVALID_DESCRIPTION_MSG = 'Please enter at least 10 characters and no more than 200'
+INVALID_LIST = [INVALID_FIRST_NAME_MSG,
+                INVALID_FIRST_NAME_MSG,
+                INVALID_EMAIL_MSG,
+                INVALID_PHONE_MSG,
+                INVALID_ADDRESS_MSG,
+                INVALID_CITY_MSG,
+                INVALID_ZIP_CODE_MSG,
+                INVALID_DESCRIPTION_MSG
+]
+VALID_FIRST_NAME = 'FirstName'
+VALID_LAST_NAME = 'LastName'
+VALID_EMAIL = 'test@test.com'
+VALID_PHONE = '(111)111-1111'
+VALID_ADDRESS = 'Address form'
+VALID_CITY = 'Minsk'
+VALID_ZIP_CODE = '1111'
+VALID_DESCRIPTION = 'testtesttest'
+VALID_STATE = 'Alabama'
