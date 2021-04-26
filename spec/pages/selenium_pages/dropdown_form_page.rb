@@ -1,9 +1,9 @@
 class DropdownFormPage < SitePrism::Page
   element :single_dropdown_list, '.from-control'
-  elements :single_options_list, :xpath, '//*[@id="select-demo"]/*'
+  elements :single_options_list, :xpath, '//select[@id="select-demo"]/*'
   element :single_selected_value, '.selected-value'
   element :multi_dropdown_list, '#multi-select'
-  elements :multi_options_list, :xpath, '//*[@id="multi-select"]/*'
+  elements :multi_options_list, :xpath, '//select[@id="multi-select"]/*'
   element :first_btn, '#printMe'
   element :multi_selected_values, '.getall-selected'
   element :all_btn, '#printAll'

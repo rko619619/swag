@@ -65,7 +65,7 @@ EMPTY_EMAIL_ADDRESS = "#{BASE_EMPTY_MESSAGE} your email address".freeze
 EMPTY_PHONE_NUMBER = "#{BASE_EMPTY_MESSAGE} your phone number".freeze
 EMPTY_STREET_ADDRESS = "#{BASE_EMPTY_MESSAGE} your street address".freeze
 EMPTY_CITY = "#{BASE_EMPTY_MESSAGE} your city".freeze
-EMPTY_STATE = "Please select your state".freeze
+EMPTY_STATE = 'Please select your state'.freeze
 EMPTY_ZIP_CODE = "#{BASE_EMPTY_MESSAGE} your zip code".freeze
 EMPTY_DESCRIPTION = "#{BASE_EMPTY_MESSAGE} a description of your project".freeze
 EMPTY_LIST = [EMPTY_FIRST_NAME,
@@ -76,16 +76,15 @@ EMPTY_LIST = [EMPTY_FIRST_NAME,
               EMPTY_CITY,
               EMPTY_STATE,
               EMPTY_ZIP_CODE,
-              EMPTY_DESCRIPTION
-]
-INVALID_VALUE = '1'
-INVALID_FIRST_NAME_MSG = 'Please enter more than 2 characters'
-INVALID_EMAIL_MSG = 'Please supply a valid email address'
-INVALID_PHONE_MSG = 'Please supply a vaild phone number with area code'
-INVALID_ADDRESS_MSG = 'Please enter more than 8 characters'
-INVALID_CITY_MSG = 'Please enter more than 4 characters'
-INVALID_ZIP_CODE_MSG = 'Please supply a vaild zip code'
-INVALID_DESCRIPTION_MSG = 'Please enter at least 10 characters and no more than 200'
+              EMPTY_DESCRIPTION].freeze
+INVALID_VALUE = '1'.freeze
+INVALID_FIRST_NAME_MSG = 'Please enter more than 2 characters'.freeze
+INVALID_EMAIL_MSG = 'Please supply a valid email address'.freeze
+INVALID_PHONE_MSG = 'Please supply a vaild phone number with area code'.freeze
+INVALID_ADDRESS_MSG = 'Please enter more than 8 characters'.freeze
+INVALID_CITY_MSG = 'Please enter more than 4 characters'.freeze
+INVALID_ZIP_CODE_MSG = 'Please supply a vaild zip code'.freeze
+INVALID_DESCRIPTION_MSG = 'Please enter at least 10 characters and no more than 200'.freeze
 INVALID_LIST = [INVALID_FIRST_NAME_MSG,
                 INVALID_FIRST_NAME_MSG,
                 INVALID_EMAIL_MSG,
@@ -93,18 +92,17 @@ INVALID_LIST = [INVALID_FIRST_NAME_MSG,
                 INVALID_ADDRESS_MSG,
                 INVALID_CITY_MSG,
                 INVALID_ZIP_CODE_MSG,
-                INVALID_DESCRIPTION_MSG
-]
-VALID_FIRST_NAME = 'FirstName'
-VALID_LAST_NAME = 'LastName'
-VALID_EMAIL = 'test@test.com'
-VALID_PHONE = '(111)111-1111'
-VALID_ADDRESS = 'Address form'
-VALID_CITY = 'Minsk'
-VALID_ZIP_CODE = '1111'
-VALID_DESCRIPTION = 'testtesttest'
-VALID_STATE = 'Alabama'
+                INVALID_DESCRIPTION_MSG].freeze
+VALID_FIRST_NAME = 'FirstName'.freeze
+VALID_LAST_NAME = 'LastName'.freeze
+VALID_EMAIL = 'test@test.com'.freeze
+VALID_PHONE = '(111)111-1111'.freeze
+VALID_ADDRESS = 'Address form'.freeze
+VALID_CITY = 'Minsk'.freeze
+VALID_ZIP_CODE = '1111'.freeze
+VALID_DESCRIPTION = 'testtesttest'.freeze
+VALID_STATE = 'Alabama'.freeze
 
 # ajax form
-PROCCESING_MSG = 'Ajax Request is Processing!'
-SUCCESS_MSG = 'Form submited Successfully!'
+PROCCESING_MSG = 'Ajax Request is Processing!'.freeze
+SUCCESS_MSG = 'Form submited Successfully!'.freeze

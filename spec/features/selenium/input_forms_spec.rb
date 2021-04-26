@@ -42,6 +42,7 @@ feature 'Input forms' do
       checkbox_form.checkbox_options('uncheck').each do |value|
         expect(value).to eq true
       end
+
       expect(checkbox_form.get_checkbox_text).to eq CHECK_ALL
     end
   end
