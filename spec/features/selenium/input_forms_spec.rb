@@ -17,8 +17,9 @@ feature 'Input forms' do
     it 'user is able to enter message to two input fields' do
       value_a = rand(50)
       value_b = rand(50)
+      sum = value_a + value_b
       simple_form.fill_multiple_field(value_a, value_b)
-      expect(simple_form.get_total).to eq (value_a + value_b).to_s
+      expect(simple_form.get_total).to eq sum.to_s
     end
   end
 
@@ -32,11 +33,15 @@ feature 'Input forms' do
 
     it 'user is able to click multiple checkbox' do
       checkbox_form.click_multiple_checkbox
-      checkbox_options('check')
+      checkbox_form.checkbox_options('check').each do |value|
+        expect(value).to eq true
+      end
       expect(checkbox_form.get_checkbox_text).to eq UNCHECK_ALL
 
       checkbox_form.click_multiple_checkbox
-      checkbox_options('uncheck')
+      checkbox_form.checkbox_options('uncheck').each do |value|
+        expect(value).to eq true
+      end
       expect(checkbox_form.get_checkbox_text).to eq CHECK_ALL
     end
   end

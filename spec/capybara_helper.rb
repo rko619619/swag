@@ -1,11 +1,13 @@
-def checkbox_options(option)
+def interact_with_checkbox(option, *args)
+  empty_list =[]
   if option == 'check'
-    [OPTION1, OPTION2, OPTION3, OPTION4].each do |option|
-      expect(checkbox_form).to have_checked_field(option)
+    args.each do |option|
+      empty_list << page.has_checked_field?(option)
     end
   elsif option == 'uncheck'
-    [OPTION1, OPTION2, OPTION3, OPTION4].each do |option|
-      expect(checkbox_form).to have_unchecked_field(option)
+    args.each do |option|
+      empty_list << page.has_unchecked_field?(option)
     end
   end
+  empty_list
 end
