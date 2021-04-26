@@ -123,8 +123,20 @@ feature 'Input forms' do
       ajax_form.fill_form
       ajax_form.click_submit_btn
       expect(ajax_form.get_proccesing_msg).to eq PROCCESING_MSG
-      sleep(2)
+      expect(ajax_form.get_proccesing_wait_msg).to eq SUCCESS_MSG
+    end
+  end
+
+  context 'Jquery select dropdown', tag: 'smoke' do
+    before { visit AJAX_FORM_SUBMIT }
+
+    it 'user is able to fill ajax form' do
+      ajax_form.fill_form
+      ajax_form.click_submit_btn
+      expect(ajax_form.get_proccesing_msg).to eq PROCCESING_MSG
+      sleep(4)
       expect(ajax_form.get_proccesing_msg).to eq SUCCESS_MSG
     end
   end
+
 end

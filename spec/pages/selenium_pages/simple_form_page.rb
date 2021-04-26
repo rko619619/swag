@@ -7,7 +7,7 @@ class SimpleFormPage < SitePrism::Page
   element :message, '#display'
   element :total, '#displayvalue'
 
-  def fill_single_filed
+  def fill_single_field
     single_input_field.set(MESSAGE_SINGLE_FIELD)
     show_message_btn.click
   end

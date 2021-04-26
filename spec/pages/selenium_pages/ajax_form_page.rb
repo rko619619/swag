@@ -16,4 +16,8 @@ class AjaxFormPage < SitePrism::Page
   def get_proccesing_msg
     loading_msg.text
   end
+
+  def get_proccesing_wait_msg
+    find(:xpath, ".//*[contains(text(), '#{SUCCESS_MSG}')]", wait: 5).text
+  end
 end
