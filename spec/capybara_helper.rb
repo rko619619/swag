@@ -11,3 +11,7 @@ def interact_with_checkbox(option, *args)
   end
   empty_list
 end
+
+def select_definite(select_id, option_value)
+  select_id.find("option[value='#{option_value}']").select_option
+end

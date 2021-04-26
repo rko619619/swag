@@ -71,28 +71,20 @@ feature 'Input forms' do
 
   context 'Select list', tag: 'smoke' do
     before { visit SELECT_DROPDOWN_DEMO }
+    DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    STATES = ['California','Florida', 'New Jersey', 'New York', 'Ohio', 'Texas', 'Pennsylvania', 'Washington']
 
     it 'user is able to select value from the list' do
-      dropdown_form.single_options_list.each do |option|
-        dropdown_form.choose_option(option)
-        expect(dropdown_form.get_single_values(option)).to eq dropdown_form.get_selected_values
-      end
+      dropdown_form.select_single_form(DAYS[1])
+      expect(dropdown_form.get_selected_values).to eq dropdown_form.get_single_values(DAYS[1])
     end
 
     it "user is able to click on 'First selected' button and get value from the list" do
-      dropdown_form.multi_options_list.each do |option|
-        dropdown_form.choose_option(option)
-        dropdown_form.click_first_btn
-        expect(dropdown_form.get_multi_values(option)).to eq dropdown_form.get_selected_multi_values
-      end
-    end
-
-    it "user is able to click on 'Get all Selected' button and get value from the list" do
-      dropdown_form.multi_options_list.each do |option|
-        dropdown_form.choose_option(option)
-        dropdown_form.click_all_btn
-        expect(dropdown_form.get_multi_all_values(option)).to eq dropdown_form.get_selected_multi_values
-      end
+      dropdown_form.select_multi_form(STATES[0])
+      dropdown_form.select_multi_form(STATES[2])
+      dropdown_form.select_multi_form(STATES[4])
+      dropdown_form.click_first_btn
+      expect(dropdown_form.get_selected_multi_values).to eq dropdown_form.get_multi_values(STATES[0])
     end
   end
 
