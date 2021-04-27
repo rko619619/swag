@@ -32,18 +32,15 @@ feature 'Input forms' do
     end
 
     it 'user is able to click multiple checkbox' do
-      checkbox_form.click_multiple_checkbox
-      checkbox_form.checkbox_options('check').each do |value|
-        expect(value).to eq true
-      end
-      expect(checkbox_form.get_checkbox_text).to eq UNCHECK_ALL
+      OPTIONS = ['Option 1', 'Option 2', 'Option 3', 'Option 4']
 
       checkbox_form.click_multiple_checkbox
-      checkbox_form.checkbox_options('uncheck').each do |value|
-        expect(value).to eq true
-      end
 
-      expect(checkbox_form.get_checkbox_text).to eq CHECK_ALL
+      expect(checkbox_form.checkbox_options(OPTIONS[0], 'check')).to eq true
+
+      checkbox_form.click_multiple_checkbox
+
+      expect(checkbox_form.checkbox_options(OPTIONS[0], 'uncheck')).to eq true
     end
   end
 
@@ -77,14 +74,6 @@ feature 'Input forms' do
     it 'user is able to select value from the list' do
       dropdown_form.select_single_form(DAYS[1])
       expect(dropdown_form.get_selected_values).to eq dropdown_form.get_single_values(DAYS[1])
-    end
-
-    it "user is able to click on 'First selected' button and get value from the list" do
-      dropdown_form.select_multi_form(STATES[0])
-      dropdown_form.select_multi_form(STATES[2])
-      dropdown_form.select_multi_form(STATES[4])
-      dropdown_form.click_first_btn
-      expect(dropdown_form.get_selected_multi_values).to eq dropdown_form.get_multi_values(STATES[0])
     end
   end
 

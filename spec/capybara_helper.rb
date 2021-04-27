@@ -1,15 +1,9 @@
-def interact_with_checkbox(option, *args)
-  empty_list = []
-  if option == 'check'
-    args.each do |option|
-      empty_list << page.has_checked_field?(option)
-    end
-  elsif option == 'uncheck'
-    args.each do |option|
-      empty_list << page.has_unchecked_field?(option)
-    end
+def interact_with_checkbox(checkbox_id,dropbox_value, action)
+  if action == 'check'
+    checkbox_id.has_checked_field?(dropbox_value)
+  elsif action == 'uncheck'
+    checkbox_id.has_unchecked_field?(dropbox_value)
   end
-  empty_list
 end
 
 def select_definite(select_id, option_value)

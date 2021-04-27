@@ -1,10 +1,12 @@
 class CheckboxFormPage < SitePrism::Page
+
+  element :checkbox_body, :xpath, "//*[@id='easycont']/div/div[2]/div[2]"
   element :single_checkbox, '#isAgeSelected'
   element :multiple_checkbox, '#check1'
   element :message_form, '#txtAge'
 
-  def checkbox_options(option)
-    interact_with_checkbox(option, OPTION1, OPTION2, OPTION3, OPTION4)
+  def checkbox_options(option, action)
+    interact_with_checkbox(checkbox_body, option, action)
   end
 
   def click_single_checkbox
