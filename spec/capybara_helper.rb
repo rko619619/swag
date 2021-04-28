@@ -1,4 +1,4 @@
-def interact_with_checkbox(checkbox_id,dropbox_value, action)
+def get_status_of_checkbox(checkbox_id, dropbox_value, action)
   if action == 'check'
     checkbox_id.has_checked_field?(dropbox_value)
   elsif action == 'uncheck'
@@ -7,5 +7,5 @@ def interact_with_checkbox(checkbox_id,dropbox_value, action)
 end
 
 def select_definite(select_id, option_value)
-  select_id.find("option[value='#{option_value}']").select_option
+  find(select_id).find("option[value='#{option_value}']").select_option
 end

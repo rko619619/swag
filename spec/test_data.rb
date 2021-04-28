@@ -34,7 +34,7 @@ COMPLETE_IMG_URL = 'https://www.saucedemo.com/static/media/pony-express.46394a5d
 
 ## for selenium
 # urls
-BASE_URL_SELENIUM = 'https://www.seleniumeasy.com/test/'.freeze
+BASE_URL_SELENIUM = 'https://www.seleniumeasy.com/test'.freeze
 
 # input forms urls
 SIMPLE_FORM_DEMO = "#{BASE_URL_SELENIUM}/basic-first-form-demo.html".freeze
@@ -106,3 +106,14 @@ VALID_STATE = 'Alabama'.freeze
 # ajax form
 PROCCESING_MSG = 'Ajax Request is Processing!'.freeze
 SUCCESS_MSG = 'Form submited Successfully!'.freeze
+
+## jquery form
+# single dropdown box with search field
+VALUES_FOR_SINGLE_DROPDOWN_BOX = ['Denmark', 'Invalid value'].freeze
+NO_RESULT_FOUND = 'No results found'.freeze
+
+# multi dropdown with search field
+VALUES_FOR_MULTI_DROPDOWN_BOX = %w[California Colorado].freeze
+
+# dropdown box with disabled values
+VALUES_FOR_DROPDOWN_BOX_WITH_DISABLED_VALUES = ['Puerto Rico', 'Guam'].freeze

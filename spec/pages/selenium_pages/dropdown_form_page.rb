@@ -1,15 +1,13 @@
 class DropdownFormPage < SitePrism::Page
-  element :single_dropdown_list, 'select#select-demo'
   element :single_selected_value, '.selected-value'
   element :multi_dropdown_list, 'select#multi-select'
-
   elements :multi_options_list, :xpath, '//select[@id="multi-select"]/*'
   element :first_btn, '#printMe'
   element :multi_selected_values, '.getall-selected'
   element :all_btn, '#printAll'
 
   def select_single_form(option_value)
-    select_definite(single_dropdown_list, option_value)
+    select_definite('select#select-demo', option_value)
   end
 
   def select_multi_form(option_value)

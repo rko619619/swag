@@ -5,12 +5,13 @@ feature 'Input forms' do
   let(:dropdown_form)        { DropdownFormPage.new }
   let(:input_form)           { InputFormPage.new    }
   let(:ajax_form)            { AjaxFormPage.new     }
+  let(:jquery_form)          { JqueryFormPage.new   }
 
   context 'Simple Form', tag: 'smoke' do
     before { visit SIMPLE_FORM_DEMO }
 
     it 'user is able to enter message to single input field' do
-      simple_form.fill_single_filed
+      simple_form.fill_single_field
       expect(simple_form.get_message).to eq MESSAGE_SINGLE_FIELD
     end
 
@@ -32,7 +33,7 @@ feature 'Input forms' do
     end
 
     it 'user is able to click multiple checkbox' do
-      OPTIONS = ['Option 1', 'Option 2', 'Option 3', 'Option 4']
+      OPTIONS = ['Option 1', 'Option 2', 'Option 3', 'Option 4'].freeze
 
       checkbox_form.click_multiple_checkbox
 
@@ -68,8 +69,7 @@ feature 'Input forms' do
 
   context 'Select list', tag: 'smoke' do
     before { visit SELECT_DROPDOWN_DEMO }
-    DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-    STATES = ['California','Florida', 'New Jersey', 'New York', 'Ohio', 'Texas', 'Pennsylvania', 'Washington']
+    DAYS = %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].freeze
 
     it 'user is able to select value from the list' do
       dropdown_form.select_single_form(DAYS[1])
@@ -109,15 +109,40 @@ feature 'Input forms' do
   end
 
   context 'Jquery select dropdown', tag: 'smoke' do
-    before { visit AJAX_FORM_SUBMIT }
+    before { visit JQUERY_SELECT_DROPDOWN }
 
-    it 'user is able to fill ajax form' do
-      ajax_form.fill_form
-      ajax_form.click_submit_btn
-      expect(ajax_form.get_proccesing_msg).to eq PROCCESING_MSG
-      sleep(4)
-      expect(ajax_form.get_proccesing_msg).to eq SUCCESS_MSG
+    it 'user is able to search and select value in single dropdown box' do
+      jquery_form.click_on_single_dropdown_box
+      jquery_form.seacrh_value_on_single_dropdown_box(VALUES_FOR_SINGLE_DROPDOWN_BOX[0])
+      jquery_form.click_on_search_result_single_dropdown
+      expect(jquery_form.get_select_value_from_single_dropdown_box).to eq VALUES_FOR_SINGLE_DROPDOWN_BOX[0]
+
+      jquery_form.click_on_single_dropdown_box
+      jquery_form.seacrh_value_on_single_dropdown_box(VALUES_FOR_SINGLE_DROPDOWN_BOX[1])
+      expect(jquery_form.present_no_result_from_single_dropdown_box).to eq NO_RESULT_FOUND
+    end
+
+    it 'user is able to search and select multi value in multi dropdown box' do
+      VALUES_FOR_MULTI_DROPDOWN_BOX.each do |search_value|
+        jquery_form.seacrh_value_on_multi_dropdown_box(search_value)
+        jquery_form.click_on_search_result_multi_dropdown
+      end
+
+      VALUES_FOR_MULTI_DROPDOWN_BOX.each do |search_value|
+        expect(jquery_form.get_multi_dropdown_values(search_value)).to eq true
+      end
+    end
+
+    it 'user is able to search and select single value in dropdown box with disabled value' do
+      jquery_form.click_on_dropdown_box_with_disabled_value
+      jquery_form.seacrh_value_on_dropdown_box_with_disbled_value(VALUES_FOR_DROPDOWN_BOX_WITH_DISABLED_VALUES[0])
+      jquery_form.click_on_search_result_of_dropdown_with_disabled_value
+      expect(jquery_form.get_select_value_from_dropdown_box_with_disabled_value).to eq VALUES_FOR_DROPDOWN_BOX_WITH_DISABLED_VALUES[0]
+
+      jquery_form.click_on_dropdown_box_with_disabled_value
+      jquery_form.seacrh_value_on_dropdown_box_with_disbled_value(VALUES_FOR_DROPDOWN_BOX_WITH_DISABLED_VALUES[1])
+      jquery_form.click_on_search_result_of_dropdown_with_disabled_value
+      expect(jquery_form.get_select_value_from_dropdown_box_with_disabled_value).not_to eq VALUES_FOR_DROPDOWN_BOX_WITH_DISABLED_VALUES[1]
     end
   end
-
 end
