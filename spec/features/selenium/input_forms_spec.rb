@@ -29,43 +29,38 @@ feature 'Input forms' do
   context 'Checkbox', tag: 'smoke' do
     before { visit CHECKBOX_DEMO }
 
+    OPTIONS = ['Option 1', 'Option 2', 'Option 3', 'Option 4'].freeze
+
     it 'user is able to click single checkbox' do
       checkbox_form.click_single_checkbox
-      expect(checkbox_form.get_message).to eq MESSAGE_CHECKBOX_FIELD
+      expect(checkbox_form.get_message_from_single_checkbox).to eq STATUS_OF_SINGLE_CHECKBOX
     end
 
     it 'user is able to click multiple checkbox' do
-      OPTIONS = ['Option 1', 'Option 2', 'Option 3', 'Option 4'].freeze
+      checkbox_form.click_multiple_checkbox
+      expect(checkbox_form.status_of_select_option?(OPTIONS[0], 'check')).to eq true
 
       checkbox_form.click_multiple_checkbox
-
-      expect(checkbox_form.checkbox_options(OPTIONS[0], 'check')).to eq true
-
-      checkbox_form.click_multiple_checkbox
-
-      expect(checkbox_form.checkbox_options(OPTIONS[0], 'uncheck')).to eq true
+      expect(checkbox_form.status_of_select_option?(OPTIONS[0], 'uncheck')).to eq true
     end
   end
 
   context 'Radio buttons', tag: 'smoke' do
     before { visit RADIO_BUTTONS_DEMO }
 
+    SEX = %w[Male Female].freeze
+    AGE = ['0 - 5', '5 - 15', '15 - 50'].freeze
+
     it 'user is able to click on single radio button and get the selected value' do
-      radio_buttons_form.single_radio_btn.each do |radio_btn|
-        radio_buttons_form.click_radio_btn(radio_btn)
-        radio_buttons_form.click_message_btn
-        expect(page).to have_content(radio_buttons_form.get_message_radio(radio_btn))
-      end
+      radio_buttons_form.click_radio_button(SEX[0])
+      radio_buttons_form.click_on_get_checked_button
+      expect(radio_buttons_form.get_correct_message_of_radio_buttons?(SEX[0])).to eq true
     end
 
     it 'user is able to click on group radio button and get the selected values from Group Sex and Age group' do
-      radio_buttons_form.gender_radio_btn.each do |gender_radio_btn|
-        radio_buttons_form.age_radio_btn.each do |age_radio_btn|
-          radio_buttons_form.click_group_radio_btn(gender_radio_btn, age_radio_btn)
-          radio_buttons_form.get_values
-          expect(radio_buttons_form.get_values_radio(gender_radio_btn, age_radio_btn)).to eq(radio_buttons_form.values_total)
-        end
-      end
+      radio_buttons_form.click_on_group_radio_buttons(SEX[0], AGE[0])
+      radio_buttons_form.click_on_get_value_button
+      expect(radio_buttons_form.get_correct_message_of_group_radio_buttons?(SEX[0], AGE[0])).to eq true
     end
   end
 
@@ -114,7 +109,7 @@ feature 'Input forms' do
     before { visit JQUERY_SELECT_DROPDOWN }
 
     VALUES_FOR_SINGLE_DROPDOWN_BOX = ['Denmark', 'Invalid value'].freeze
-    VALUES_FOR_MULTI_DROPDOWN_BOX = ['California', 'Colorado'].freeze
+    VALUES_FOR_MULTI_DROPDOWN_BOX = %w[California Colorado].freeze
     VALUES_FOR_DROPDOWN_BOX_WITH_DISABLED_VALUES = ['Puerto Rico', 'Guam'].freeze
 
     it 'user is able to search and select value in single dropdown box' do

@@ -46,13 +46,7 @@ AJAX_FORM_SUBMIT = "#{BASE_URL_SELENIUM}/ajax-form-submit-demo.html".freeze
 JQUERY_SELECT_DROPDOWN = "#{BASE_URL_SELENIUM}/jquery-dropdown-search-demo.html".freeze
 
 # checkbox demo
-MESSAGE_CHECKBOX_FIELD = 'Success - Check box is checked'.freeze
-UNCHECK_ALL = 'Uncheck All'.freeze
-CHECK_ALL = 'Check All'.freeze
-OPTION1 = 'Option 1'.freeze
-OPTION2 = 'Option 2'.freeze
-OPTION3 = 'Option 3'.freeze
-OPTION4 = 'Option 4'.freeze
+STATUS_OF_SINGLE_CHECKBOX = 'Success - Check box is checked'.freeze
 
 # input form
 BASE_EMPTY_MESSAGE = 'Please supply'.freeze

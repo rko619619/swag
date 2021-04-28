@@ -22,8 +22,6 @@ class DropdownFormPage < SitePrism::Page
     %(Day selected :- #{option})
   end
 
-
-
   def click_all_btn
     all_btn.click
   end
