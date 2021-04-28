@@ -45,9 +45,6 @@ INPUT_FORM_SUBMIT = "#{BASE_URL_SELENIUM}/input-form-demo.html".freeze
 AJAX_FORM_SUBMIT = "#{BASE_URL_SELENIUM}/ajax-form-submit-demo.html".freeze
 JQUERY_SELECT_DROPDOWN = "#{BASE_URL_SELENIUM}/jquery-dropdown-search-demo.html".freeze
 
-# simple form demo
-MESSAGE_SINGLE_FIELD = 'My message'.freeze
-
 # checkbox demo
 MESSAGE_CHECKBOX_FIELD = 'Success - Check box is checked'.freeze
 UNCHECK_ALL = 'Uncheck All'.freeze
@@ -109,11 +106,4 @@ SUCCESS_MSG = 'Form submited Successfully!'.freeze
 
 ## jquery form
 # single dropdown box with search field
-VALUES_FOR_SINGLE_DROPDOWN_BOX = ['Denmark', 'Invalid value'].freeze
 NO_RESULT_FOUND = 'No results found'.freeze
-
-# multi dropdown with search field
-VALUES_FOR_MULTI_DROPDOWN_BOX = %w[California Colorado].freeze
-
-# dropdown box with disabled values
-VALUES_FOR_DROPDOWN_BOX_WITH_DISABLED_VALUES = ['Puerto Rico', 'Guam'].freeze

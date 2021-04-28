@@ -1,28 +1,33 @@
 class SimpleFormPage < SitePrism::Page
+  # single input field
   element :single_input_field, ".form-control[id='user-message']"
-  element :first_input_field, '#sum1'
-  element :second_input_field, '#sum2'
-  element :get_total_btn, '#gettotal > button'
-  element :show_message_btn, '#get-input > button'
-  element :message, '#display'
-  element :total, '#displayvalue'
+  element :single_field_message_btn, '#get-input > button'
+  element :message_from_single_field, '#display'
 
-  def fill_single_field
-    single_input_field.set(MESSAGE_SINGLE_FIELD)
-    show_message_btn.click
+  # two input field
+  element :first_field_from_two_fields, '#sum1'
+  element :second_field_from_two_fields, '#sum2'
+  element :two_fields_message_btn, '#gettotal > button'
+  element :message_from_two_fields, '#displayvalue'
+
+  # sigle input field
+  def fill_single_field(option)
+    single_input_field.set(option)
+    single_field_message_btn.click
   end
 
+  def get_message_from_single_field
+    message_from_single_field.text
+  end
+
+  # two input fields
   def fill_multiple_field(value1, value2)
-    first_input_field.set(value1)
-    second_input_field.set(value2)
-    get_total_btn.click
+    first_field_from_two_fields.set(value1)
+    second_field_from_two_fields.set(value2)
+    two_fields_message_btn.click
   end
 
-  def get_message
-    message.text
-  end
-
-  def get_total
-    total.text
+  def get_message_from_two_fields
+    message_from_two_fields.text
   end
 end

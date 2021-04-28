@@ -10,17 +10,19 @@ feature 'Input forms' do
   context 'Simple Form', tag: 'smoke' do
     before { visit SIMPLE_FORM_DEMO }
 
+    MESSAGE_SINGLE_FIELD = 'My message'.freeze
+
     it 'user is able to enter message to single input field' do
-      simple_form.fill_single_field
-      expect(simple_form.get_message).to eq MESSAGE_SINGLE_FIELD
+      simple_form.fill_single_field(MESSAGE_SINGLE_FIELD)
+      expect(simple_form.get_message_from_single_field).to eq MESSAGE_SINGLE_FIELD
     end
 
     it 'user is able to enter message to two input fields' do
-      value_a = rand(50)
-      value_b = rand(50)
-      sum = value_a + value_b
-      simple_form.fill_multiple_field(value_a, value_b)
-      expect(simple_form.get_total).to eq sum.to_s
+      first_value = rand(50)
+      second_value = rand(50)
+      sum = first_value + second_value
+      simple_form.fill_multiple_field(first_value, second_value)
+      expect(simple_form.get_message_from_two_fields).to eq sum.to_s
     end
   end
 
@@ -111,38 +113,42 @@ feature 'Input forms' do
   context 'Jquery select dropdown', tag: 'smoke' do
     before { visit JQUERY_SELECT_DROPDOWN }
 
-    it 'user is able to search and select value in single dropdown box' do
-      jquery_form.click_on_single_dropdown_box
-      jquery_form.seacrh_value_on_single_dropdown_box(VALUES_FOR_SINGLE_DROPDOWN_BOX[0])
-      jquery_form.click_on_search_result_single_dropdown
-      expect(jquery_form.get_select_value_from_single_dropdown_box).to eq VALUES_FOR_SINGLE_DROPDOWN_BOX[0]
+    VALUES_FOR_SINGLE_DROPDOWN_BOX = ['Denmark', 'Invalid value'].freeze
+    VALUES_FOR_MULTI_DROPDOWN_BOX = ['California', 'Colorado'].freeze
+    VALUES_FOR_DROPDOWN_BOX_WITH_DISABLED_VALUES = ['Puerto Rico', 'Guam'].freeze
 
-      jquery_form.click_on_single_dropdown_box
-      jquery_form.seacrh_value_on_single_dropdown_box(VALUES_FOR_SINGLE_DROPDOWN_BOX[1])
-      expect(jquery_form.present_no_result_from_single_dropdown_box).to eq NO_RESULT_FOUND
+    it 'user is able to search and select value in single dropdown box' do
+      jquery_form.click_on_search_dropdown
+      jquery_form.search_in_search_dropdown(VALUES_FOR_SINGLE_DROPDOWN_BOX[0])
+      jquery_form.click_on_search_result_in_search_dropdown
+      expect(jquery_form.get_select_value_from_search_dropdown).to eq VALUES_FOR_SINGLE_DROPDOWN_BOX[0]
+
+      jquery_form.click_on_search_dropdown
+      jquery_form.search_in_search_dropdown(VALUES_FOR_SINGLE_DROPDOWN_BOX[1])
+      expect(jquery_form.present_no_result_from_search_dropdown).to eq NO_RESULT_FOUND
     end
 
     it 'user is able to search and select multi value in multi dropdown box' do
       VALUES_FOR_MULTI_DROPDOWN_BOX.each do |search_value|
-        jquery_form.seacrh_value_on_multi_dropdown_box(search_value)
+        jquery_form.search_on_multi_dropdown(search_value)
         jquery_form.click_on_search_result_multi_dropdown
       end
 
       VALUES_FOR_MULTI_DROPDOWN_BOX.each do |search_value|
-        expect(jquery_form.get_multi_dropdown_values(search_value)).to eq true
+        expect(jquery_form.element_is_present_in_multi_dropdown?(search_value)).to eq true
       end
     end
 
     it 'user is able to search and select single value in dropdown box with disabled value' do
-      jquery_form.click_on_dropdown_box_with_disabled_value
-      jquery_form.seacrh_value_on_dropdown_box_with_disbled_value(VALUES_FOR_DROPDOWN_BOX_WITH_DISABLED_VALUES[0])
-      jquery_form.click_on_search_result_of_dropdown_with_disabled_value
-      expect(jquery_form.get_select_value_from_dropdown_box_with_disabled_value).to eq VALUES_FOR_DROPDOWN_BOX_WITH_DISABLED_VALUES[0]
+      jquery_form.click_on_disabled_dropdown
+      jquery_form.search_value_on_disabled_dropdown(VALUES_FOR_DROPDOWN_BOX_WITH_DISABLED_VALUES[0])
+      jquery_form.click_on_search_result_in_disabled_dropdown
+      expect(jquery_form.get_select_value_from_disabled_dropdown).to eq VALUES_FOR_DROPDOWN_BOX_WITH_DISABLED_VALUES[0]
 
-      jquery_form.click_on_dropdown_box_with_disabled_value
-      jquery_form.seacrh_value_on_dropdown_box_with_disbled_value(VALUES_FOR_DROPDOWN_BOX_WITH_DISABLED_VALUES[1])
-      jquery_form.click_on_search_result_of_dropdown_with_disabled_value
-      expect(jquery_form.get_select_value_from_dropdown_box_with_disabled_value).not_to eq VALUES_FOR_DROPDOWN_BOX_WITH_DISABLED_VALUES[1]
+      jquery_form.click_on_disabled_dropdown
+      jquery_form.search_value_on_disabled_dropdown(VALUES_FOR_DROPDOWN_BOX_WITH_DISABLED_VALUES[1])
+      jquery_form.click_on_search_result_in_disabled_dropdown
+      expect(jquery_form.get_select_value_from_disabled_dropdown).not_to eq VALUES_FOR_DROPDOWN_BOX_WITH_DISABLED_VALUES[1]
     end
   end
 end
