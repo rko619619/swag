@@ -1,23 +1,24 @@
 class AjaxFormPage < SitePrism::Page
-  elements :mutli_form, '.form-control'
-  element :submit_btn, '[name=btn-submit]'
-  element :loading_msg, '#submit-control'
+  # ajax form
+  elements :fields_in_ajax_form, '.form-control'
+  element :submit_button, '[name=btn-submit]'
+  element :loading_message, '#submit-control'
 
-  def click_submit_btn
-    submit_btn.click
-  end
-
-  def fill_form
-    mutli_form.each do |form|
-      form.set(VALID_FIRST_NAME)
+  def fill_ajax_form(option)
+    fields_in_ajax_form.each do |field|
+      field.set(option)
     end
   end
 
-  def get_proccesing_msg
-    loading_msg.text
+  def click_submit_button
+    submit_button.click
   end
 
-  def get_proccesing_wait_msg
-    find(:xpath, ".//*[contains(text(), '#{SUCCESS_MSG}')]", wait: 5).text
+  def proccesing_message_is_get?
+    loading_message.text == PROCCESING_MSG
+  end
+
+  def success_message_is_get?
+    find(:xpath, ".//*[contains(text(), '#{SUCCESS_MSG}')]", wait: 5).text == SUCCESS_MSG
   end
 end

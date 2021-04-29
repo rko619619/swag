@@ -1,45 +1,46 @@
 class InputFormPage < SitePrism::Page
-  element :send_btn, '.btn-default'
-  elements :empty_error_message, ".help-block[data-bv-validator='notEmpty']"
-  elements :empty_error_message, ".help-block[data-bv-result='INVALID']"
-  elements :input_forms, '.form-control'
-  element :first_name_form, '[name=first_name]'
-  element :last_name_form, '[name=last_name]'
-  element :email_form, '[name=email]'
-  element :phone_form, '[name=phone]'
-  element :address_form, '[name=address]'
-  element :city_form, '[name=city]'
-  element :state_select_form, '[name=state]'
-  element :zip_code_form, '[name=zip]'
-  element :comment_form, '[name=comment]'
+  # input form
+  element :send_button, '.btn-default'
+  elements :messages_from_input_from, ".help-block[data-bv-result='INVALID']"
+  elements :input_form_fields, '.form-control'
+  element :first_name_field, '[name=first_name]'
+  element :last_name_field, '[name=last_name]'
+  element :email_field, '[name=email]'
+  element :phone_field, '[name=phone]'
+  element :address_field, '[name=address]'
+  element :city_field, '[name=city]'
+  element :state_select_field, '[name=state]'
+  element :zip_code_field, '[name=zip]'
+  element :comment_field, '[name=comment]'
 
-  def fill_form_valid
-    first_name_form.set(VALID_FIRST_NAME)
-    last_name_form.set(VALID_LAST_NAME)
-    email_form.set(VALID_EMAIL)
-    phone_form.set(VALID_PHONE)
-    address_form.set(VALID_ADDRESS)
-    city_form.set(VALID_CITY)
-    zip_code_form.set(VALID_ZIP_CODE)
-    comment_form.set(VALID_DESCRIPTION)
-    state_select_form.select(VALID_STATE)
+  # input form
+  def click_send_button
+    send_button.click
   end
 
-  def fill_form_unvalid
-    input_forms.each do |form|
-      form.set(INVALID_VALUE)
-    end
-  end
-
-  def get_messages
+  def get_messages_from_input_form
     empty_list = []
-    empty_error_message.each do |message|
+    messages_from_input_from.each do |message|
       empty_list << message.text
     end
     empty_list
   end
 
-  def click_send_btn
-    send_btn.click
+  def fill_form_with_invalid_values(option)
+    input_form_fields.each do |field|
+      field.set(option)
+    end
+  end
+
+  def fill_form_with_valid_values
+    first_name_field.set(VALID_FIRST_NAME)
+    last_name_field.set(VALID_LAST_NAME)
+    email_field.set(VALID_EMAIL)
+    phone_field.set(VALID_PHONE)
+    address_field.set(VALID_ADDRESS)
+    city_field.set(VALID_CITY)
+    zip_code_field.set(VALID_ZIP_CODE)
+    comment_field.set(VALID_DESCRIPTION)
+    state_select_field.select(VALID_STATE)
   end
 end

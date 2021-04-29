@@ -7,7 +7,7 @@ feature 'Input forms' do
   let(:ajax_form)            { AjaxFormPage.new     }
   let(:jquery_form)          { JqueryFormPage.new   }
 
-  context 'Simple Form', tag: 'smoke' do
+  context 'Simple Form', tag: 'regression' do
     before { visit SIMPLE_FORM_DEMO }
 
     MESSAGE_SINGLE_FIELD = 'My message'.freeze
@@ -26,7 +26,7 @@ feature 'Input forms' do
     end
   end
 
-  context 'Checkbox', tag: 'smoke' do
+  context 'Checkbox', tag: 'regression' do
     before { visit CHECKBOX_DEMO }
 
     OPTIONS = ['Option 1', 'Option 2', 'Option 3', 'Option 4'].freeze
@@ -45,7 +45,7 @@ feature 'Input forms' do
     end
   end
 
-  context 'Radio buttons', tag: 'smoke' do
+  context 'Radio buttons', tag: 'regression' do
     before { visit RADIO_BUTTONS_DEMO }
 
     SEX = %w[Male Female].freeze
@@ -60,52 +60,57 @@ feature 'Input forms' do
     it 'user is able to click on group radio button and get the selected values from Group Sex and Age group' do
       radio_buttons_form.click_on_group_radio_buttons(SEX[0], AGE[0])
       radio_buttons_form.click_on_get_value_button
-      expect(radio_buttons_form.get_correct_message_of_group_radio_buttons?(SEX[0], AGE[0])).to eq true
+      expect(radio_buttons_form.correct_message_of_group_radio_buttons_is_get?(SEX[0], AGE[0])).to eq true
     end
   end
 
-  context 'Select list', tag: 'smoke' do
+  context 'Select list', tag: 'regression' do
     before { visit SELECT_DROPDOWN_DEMO }
+
     DAYS = %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].freeze
 
     it 'user is able to select value from the list' do
-      dropdown_form.select_single_form(DAYS[1])
-      expect(dropdown_form.get_selected_values).to eq dropdown_form.get_single_values(DAYS[1])
+      dropdown_form.select_value_in_select_list(DAYS[1])
+      expect(dropdown_form.correct_value_of_select_list_is_get?(DAYS[1])).to eq true
     end
   end
 
-  context 'Input form with validations', tag: 'smoke' do
+  context 'Input form with validations', tag: 'regression' do
     before { visit INPUT_FORM_SUBMIT }
 
-    it 'user is not able to send form, with empty value' do
-      input_form.click_send_btn
-      expect(input_form.get_messages).to eq EMPTY_LIST
+    INVALID_VALUE = '1'.freeze
+
+    it 'user is not able to send form with empty value' do
+      input_form.click_send_button
+      expect(input_form.get_messages_from_input_form).to eq EMPTY_LIST
     end
 
-    it 'user is not able to send form, with unvalid value' do
-      input_form.fill_form_unvalid
-      expect(input_form.get_messages).to eq INVALID_LIST
+    it 'user is not able to send form with unvalid value' do
+      input_form.fill_form_with_invalid_values(INVALID_VALUE)
+      expect(input_form.get_messages_from_input_form).to eq INVALID_LIST
     end
 
-    it 'user is able to send form, with valid value ' do
-      input_form.fill_form_valid
-      input_form.click_send_btn
-      expect(input_form.get_messages).to eq []
+    it 'user is able to send form with valid value ' do
+      input_form.fill_form_with_valid_values
+      input_form.click_send_button
+      expect(input_form.get_messages_from_input_form).to eq []
     end
   end
 
-  context 'Ajax Form Submit with Loading icon ', tag: 'smoke' do
+  context 'Ajax Form Submit with Loading icon ', tag: 'regression' do
     before { visit AJAX_FORM_SUBMIT }
 
+    VALUE_FOR_AJAX_FORM = 'Test'.freeze
+
     it 'user is able to fill ajax form' do
-      ajax_form.fill_form
-      ajax_form.click_submit_btn
-      expect(ajax_form.get_proccesing_msg).to eq PROCCESING_MSG
-      expect(ajax_form.get_proccesing_wait_msg).to eq SUCCESS_MSG
+      ajax_form.fill_ajax_form(VALUE_FOR_AJAX_FORM)
+      ajax_form.click_submit_button
+      expect(ajax_form.proccesing_message_is_get?).to eq true
+      expect(ajax_form.success_message_is_get?).to eq true
     end
   end
 
-  context 'Jquery select dropdown', tag: 'smoke' do
+  context 'Jquery select dropdown', tag: 'regression' do
     before { visit JQUERY_SELECT_DROPDOWN }
 
     VALUES_FOR_SINGLE_DROPDOWN_BOX = ['Denmark', 'Invalid value'].freeze

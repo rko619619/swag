@@ -4,7 +4,7 @@ class RadioButtonsPage < SitePrism::Page
   element :message_of_radio_buttons, 'p.radiobutton'
 
   # group radio buttons
-  element :values_btn_of_group_buttons, :xpath, "//button[contains(., 'Get values')]"
+  element :values_button_of_group_buttons, :xpath, "//button[contains(., 'Get values')]"
   element :message_of_group_radio_buttons, 'p.groupradiobutton'
 
   # radio button
@@ -12,7 +12,7 @@ class RadioButtonsPage < SitePrism::Page
     page.find("[name=optradio][value='#{gender}']").click
   end
 
-  def click_on_get_checked_btn
+  def click_on_get_checked_button
     checked_btn_of_radio_buttons.click
   end
 
@@ -30,7 +30,7 @@ class RadioButtonsPage < SitePrism::Page
     values_button_of_group_buttons.click
   end
 
-  def get_correct_message_of_group_radio_buttons?(gender, age)
+  def correct_message_of_group_radio_buttons_is_get?(gender, age)
     message_of_group_radio_buttons.text == %(Sex : #{gender}\nAge group: #{age})
   end
 end

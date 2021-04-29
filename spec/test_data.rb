@@ -68,7 +68,6 @@ EMPTY_LIST = [EMPTY_FIRST_NAME,
               EMPTY_STATE,
               EMPTY_ZIP_CODE,
               EMPTY_DESCRIPTION].freeze
-INVALID_VALUE = '1'.freeze
 INVALID_FIRST_NAME_MSG = 'Please enter more than 2 characters'.freeze
 INVALID_EMAIL_MSG = 'Please supply a valid email address'.freeze
 INVALID_PHONE_MSG = 'Please supply a vaild phone number with area code'.freeze
