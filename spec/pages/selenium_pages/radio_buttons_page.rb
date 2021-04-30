@@ -16,8 +16,8 @@ class RadioButtonsPage < SitePrism::Page
     checked_btn_of_radio_buttons.click
   end
 
-  def get_correct_message_of_radio_buttons?(_option)
-    message_of_radio_buttons.text == %(Radio button '#{SEX[0]}' is checked)
+  def get_correct_message_of_radio_buttons?(option)
+    message_of_radio_buttons.text == %(Radio button '#{option}' is checked)
   end
 
   # group radio buttons
