@@ -10,7 +10,7 @@ feature 'Input forms' do
   context 'Simple Form', tag: 'regression' do
     before { visit SIMPLE_FORM_DEMO }
 
-    MESSAGE_SINGLE_FIELD = 'My message'
+    MESSAGE_SINGLE_FIELD = Faker::Alphanumeric.alpha(number: 10)
 
     it 'user is able to fill single input' do
       simple_form.fill_single_field(MESSAGE_SINGLE_FIELD)
@@ -54,7 +54,6 @@ feature 'Input forms' do
     selected_sex = SEX.sample
     selected_age = AGE.sample
 
-
     it 'user is able to click on single radio button and get the selected value' do
       radio_buttons_form.click_radio_button(selected_sex)
       radio_buttons_form.click_on_get_checked_button
@@ -71,7 +70,7 @@ feature 'Input forms' do
   context 'Select list', tag: 'regression' do
     before { visit SELECT_DROPDOWN_DEMO }
 
-    DAYS = %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday]
+    DAYS = %w[Monday Tuesday Wednesday Thursday Friday Saturday Sunday].freeze
     selected_days = DAYS.sample
     it 'user is able to select value from the list' do
       dropdown_form.select_value_in_select_list(selected_days)
@@ -82,7 +81,7 @@ feature 'Input forms' do
   context 'Input form with validations', tag: 'regression' do
     before { visit INPUT_FORM_SUBMIT }
 
-    INVALID_VALUE = '1'
+    INVALID_VALUE = Faker::Alphanumeric.alpha(number: 1)
 
     it 'user is not able to send form with empty value' do
       input_form.click_send_button
@@ -104,13 +103,13 @@ feature 'Input forms' do
   context 'Ajax Form Submit with Loading icon ', tag: 'regression' do
     before { visit AJAX_FORM_SUBMIT }
 
-    VALUE_FOR_AJAX_FORM = 'Test'
+    VALUE_FOR_AJAX_FORM = Faker::Alphanumeric.alpha(number: 20)
 
     it 'user is able to submit ajax form' do
       ajax_form.fill_ajax_form(VALUE_FOR_AJAX_FORM)
       ajax_form.click_submit_button
       expect(ajax_form.proccesing_message_is_get?).to eq true
-      expect(ajax_form.success_message_is_get?).to eq true
+      ajax_form.wait_success_message
     end
   end
 
@@ -123,7 +122,7 @@ feature 'Input forms' do
     valid_values_for_single_dropdown = VALID_VALUES_FOR_SINGLE_DROPDOWN_BOX.sample
 
     # multi dropdown
-    VALUES_FOR_MULTI_DROPDOWN_BOX = %w[California Colorado  Alabama Alaska Arizona]
+    VALUES_FOR_MULTI_DROPDOWN_BOX = %w[California Colorado Alabama Alaska Arizona]
     values_multi_for_dropdown = VALUES_FOR_MULTI_DROPDOWN_BOX.sample(2)
 
     # disabled dropdown

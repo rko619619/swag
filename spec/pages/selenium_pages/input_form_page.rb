@@ -33,14 +33,14 @@ class InputFormPage < SitePrism::Page
   end
 
   def fill_form_with_valid_values
-    first_name_field.set(VALID_FIRST_NAME)
-    last_name_field.set(VALID_LAST_NAME)
-    email_field.set(VALID_EMAIL)
-    phone_field.set(VALID_PHONE)
-    address_field.set(VALID_ADDRESS)
-    city_field.set(VALID_CITY)
-    zip_code_field.set(VALID_ZIP_CODE)
-    comment_field.set(VALID_DESCRIPTION)
+    first_name_field.set(Faker::Name.first_name)
+    last_name_field.set(Faker::Name.last_name)
+    email_field.set(Faker::Internet.email)
+    phone_field.set(Faker::PhoneNumber.cell_phone)
+    address_field.set(Faker::Address.full_address)
+    city_field.set(Faker::Address.city)
+    zip_code_field.set(Faker::Address.zip_code)
+    comment_field.set(Faker::Alphanumeric.alpha(number: 20))
     state_select_field.select(VALID_STATE)
   end
 end

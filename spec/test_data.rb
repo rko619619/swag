@@ -83,14 +83,7 @@ INVALID_LIST = [INVALID_FIRST_NAME_MSG,
                 INVALID_CITY_MSG,
                 INVALID_ZIP_CODE_MSG,
                 INVALID_DESCRIPTION_MSG].freeze
-VALID_FIRST_NAME = 'FirstName'.freeze
-VALID_LAST_NAME = 'LastName'.freeze
-VALID_EMAIL = 'test@test.com'.freeze
-VALID_PHONE = '(111)111-1111'.freeze
-VALID_ADDRESS = 'Address form'.freeze
-VALID_CITY = 'Minsk'.freeze
-VALID_ZIP_CODE = '1111'.freeze
-VALID_DESCRIPTION = 'testtesttest'.freeze
+
 VALID_STATE = 'Alabama'.freeze
 
 # ajax form

@@ -18,7 +18,7 @@ class AjaxFormPage < SitePrism::Page
     loading_message.text == PROCCESING_MSG
   end
 
-  def success_message_is_get?
-    find(:xpath, ".//*[contains(text(), '#{SUCCESS_MSG}')]", wait: 5).text == SUCCESS_MSG
+  def wait_success_message
+    find(:xpath, "//div[contains(text(), '#{SUCCESS_MSG}')]", wait: 5)
   end
 end

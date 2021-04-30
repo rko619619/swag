@@ -1,5 +1,6 @@
 gem 'capybara'
 gem 'capybara-screenshot', group: :test
+gem 'faker'
 gem 'parallel'
 gem 'pry'
 gem 'pry-byebug'
