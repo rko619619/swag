@@ -9,7 +9,7 @@ class RadioButtonsPage < SitePrism::Page
 
   # radio button
   def click_radio_button(gender)
-    page.find("[name=optradio][value='#{gender}']").click
+    find("[name=optradio][value='#{gender}']").click
   end
 
   def click_on_get_checked_button
@@ -22,8 +22,8 @@ class RadioButtonsPage < SitePrism::Page
 
   # group radio buttons
   def click_on_group_radio_buttons(gender, age)
-    page.find("[name=gender][value='#{gender}']").click
-    page.find("[name=ageGroup][value='#{age}']").click
+    find("[name=gender][value='#{gender}']").click
+    find("[name=ageGroup][value='#{age}']").click
   end
 
   def click_on_get_value_button

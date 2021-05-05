@@ -109,7 +109,7 @@ feature 'Input forms' do
       ajax_form.fill_ajax_form(VALUE_FOR_AJAX_FORM)
       ajax_form.click_submit_button
       expect(ajax_form.proccesing_message_is_get?).to eq true
-      ajax_form.wait_success_message
+      ajax_form.wait_for_success_message
     end
   end
 

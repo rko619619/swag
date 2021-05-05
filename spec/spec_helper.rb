@@ -36,7 +36,7 @@ Capybara.default_driver = :selenium_chrome
 Capybara.register_driver :selenium_chrome do |app|
   browser_options = ::Selenium::WebDriver::Chrome::Options.new.tap do |opts|
     opts.args << '--start-maximized'
-    # opts.args << '--headless'
+    #opts.args << '--headless'
     opts.args << '--disable-extensions'
   end
   Capybara::Selenium::Driver.new(app, browser: :chrome, options: browser_options)
@@ -45,7 +45,7 @@ end
 Capybara.register_driver :selenium_firefox do |app|
   browser_options = ::Selenium::WebDriver::Firefox::Options.new.tap do |opts|
     opts.args << '--start-maximized'
-    opts.args << '--headless'
+    #opts.args << '--headless'
     opts.args << '--disable-extensions'
   end
   Capybara::Selenium::Driver.new(app, browser: :firefox, options: browser_options)

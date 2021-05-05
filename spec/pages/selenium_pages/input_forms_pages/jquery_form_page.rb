@@ -45,7 +45,7 @@ class JqueryFormPage < SitePrism::Page
   end
 
   def element_is_present_in_multi_dropdown?(search_value)
-    page.has_css?(".select2-selection__choice[title=#{search_value}]")
+    has_css?(".select2-selection__choice[title=#{search_value}]")
   end
 
   # dropdown box with disabled values
