@@ -16,10 +16,8 @@ class BootstrapDatepickersPage < SitePrism::Page
 
   def check_future_is_disabled_in_date_example?
     check = true
-    disabled_future_days_in_date_example.each do |future_day|
-      unless future[:class].include?("disabled")
-        check = false
-      end
+    disabled_future_days_in_date_example.each do |_future_day|
+      check = false unless future[:class].include?('disabled')
     end
     check
   end
@@ -27,9 +25,7 @@ class BootstrapDatepickersPage < SitePrism::Page
   def check_sunday_is_disabled_in_date_example?
     check = true
     disabled_sunday_days_in_date_example.each do |sunday_day|
-      unless sunday_day[:class].include?("disabled-date")
-        check = false
-      end
+      check = false unless sunday_day[:class].include?('disabled-date')
     end
     check
   end
@@ -46,9 +42,7 @@ class BootstrapDatepickersPage < SitePrism::Page
   def check_sunday_is_disabled_in_date_range?
     check = true
     disabled_sunday_days_in_date_range.each do |sunday_day|
-      unless sunday_day[:class].include?("disabled-date")
-        check = false
-      end
+      check = false unless sunday_day[:class].include?('disabled-date')
     end
     check
   end
