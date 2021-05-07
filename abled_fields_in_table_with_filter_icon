@@ -1,0 +1,14 @@
+
+[1mFrom:[0m /home/yanis/projects/swag/spec/pages/selenium_pages/table_pages/table_with_search_and_filter_page.rb:37 TableSearchFilterPage#check_that_filter_is_disabled?:
+
+    [1;34m35[0m: [32mdef[0m [1;34mcheck_that_filter_is_disabled?[0m
+    [1;34m36[0m:   binding.pry
+ => [1;34m37[0m:   check = [1;36mtrue[0m
+    [1;34m38[0m:   disabled_fields_in_table_with_filter_icon.each [32mdo[0m |element|
+    [1;34m39[0m:     [32mif[0m [32mnot[0m element.disabled?
+    [1;34m40[0m:       check = [1;36mfalse[0m
+    [1;34m41[0m:     [32mend[0m
+    [1;34m42[0m:   [32mend[0m
+    [1;34m43[0m:   check
+    [1;34m44[0m: [32mend[0m
+

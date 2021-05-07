@@ -9,3 +9,13 @@ end
 def select_definite(select_id, option_value)
   find(select_id).find("option[value='#{option_value}']").select_option
 end
+
+def check_value_in_table_tasks(elements, filter_value)
+  check = true
+  elements.each do |element|
+    if not element.text == filter_value
+      check = false
+    end
+  end
+  check
+end

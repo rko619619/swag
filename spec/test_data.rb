@@ -51,6 +51,7 @@ JQUERY_DATE_PICKERS = "#{BASE_URL_SELENIUM}/jquery-date-picker-demo.html"
 
 ## table
 TABLE_PAGINATION = "#{BASE_URL_SELENIUM}/table-pagination-demo.html"
+TABLE_WITH_SEARCH_AND_FILTER = "#{BASE_URL_SELENIUM}/table-search-filter-demo.html"
 
 # checkbox demo
 STATUS_OF_SINGLE_CHECKBOX = 'Success - Check box is checked'
