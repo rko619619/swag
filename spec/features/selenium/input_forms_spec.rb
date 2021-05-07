@@ -139,7 +139,7 @@ feature 'Input forms' do
 
       jquery_form.click_on_search_dropdown
       jquery_form.search_in_search_dropdown(INVALID_VALUES_FOR_SINGLE_DROPDOWN_BOX)
-      expect(jquery_form.present_no_result_from_search_dropdown).to eq NO_RESULT_FOUND
+      expect(jquery_form.present_no_result_from_search_dropdown).to eq NO_RESULTS_FOUND
     end
 
     it 'user is able to search and select multi value in multi dropdown box' do

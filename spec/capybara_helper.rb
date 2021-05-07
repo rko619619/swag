@@ -13,9 +13,11 @@ end
 def check_value_in_table_tasks(elements, filter_value)
   check = true
   elements.each do |element|
-    if not element.text == filter_value
-      check = false
-    end
+    check = false if element.text != filter_value
   end
   check
+end
+
+def input_value_to_field(element, value)
+  element.set(value)
 end

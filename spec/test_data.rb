@@ -103,8 +103,8 @@ SUCCESS_MSG = 'Form submited Successfully!'
 
 ## jquery form
 # single dropdown box with search field
-NO_RESULT_FOUND = 'No results found'
-
+NO_RESULTS_FOUND = 'No results found'
+NO_RESULT_FOUND = 'No result found'
 ## bootstrap date pickers
 # date example
 MONDAY = "Mo"
